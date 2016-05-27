@@ -1,10 +1,10 @@
-Tutorial -- Cre3ación de Aplicaciones Web en SWI-Prolog
+Tutorial -- Creación de Aplicaciones Web en SWI-Prolog
 ===================================================
 Anne Ogborn <annie66us@yahoo.com>
 :Author Initials: AO
 :Revision: 1.2.2
 :Revision: 1.2.2
-:Date:  Dec 20, 2015
+:Date:  20 Dic, 2015
 :toc2:
 :icons:
 :numbered:
@@ -21,24 +21,24 @@ Introducción
 Resultados Esperados
 ~~~~~~~~~~~~~~~~
 
-Si entra a este curso sabiendo bien SWI-Prolog y tiene algo de experiencia con desarrollo web, deberá ser capaz de competently write production web applications afterwards. The learning curve is pleasantly short.
+Si entra a este curso sabiendo bien SWI-Prolog y tiene algo de experiencia con desarrollo web, deberá ser capaz de competentemente escribir aplicaciones web listas para producción al terminar. La curva de aprendizaje es agradablemente corta.
 
 Tiempo
 ~~~~
 
-3-6 hours if you do all the exercises. You can start writing 'real' code after finishing section 3 at minimum.
+De 3-6 hras si realiza todos los ejercicios. Puede iniciar a escribir código 'real' tras terminar por lo menos la sección 3.
 
-Who This Course Is For
+¿Para quién es este curso?
 ~~~~~~~~~~~~~~~~~~~~~~
 
-This course is for anyone who knows SWI-Prolog reasonably well and wants to learn the web application framework bundled with SWI-Prolog. You will also need some fluency with web development basics like HTML, CSS, and HTTP.
+Este curso es para cualquiera que conozca SWI-Prolog reasonablemente bien y desee aprender el framework de aplicaciones web que viene embebido en SWI-Prolog. También neesitará algo de fluidez con los fundamentos del desarrollo web tales como HTML, CSS, y HTTP.
 
-Many programmers assume Prolog needs to be hosted with a 'normal' language. I'm not sure why. Certainly xpce wouldn't be suitable for many desktop gui systems. But those are becoming rare. Even the desktop systems I've written recently have been written as web servers that display the UI in the browser. This course is part of my response to this mentality.
+Muchos programadores asumen que Prolog necesita estar hospedado dentro de un lenguaje 'normal'. No estoy segura del porqué. Ciertamente xpce no sería adecuado para muchos sistemas de escritorio con interfaz gráfica. Sin embargo, los susodichos están volviéndose raros. Incluso, los sistemas de escritorio que he estado escribiendo recientemente han sido escritos como servidores web que muestran la interfaz gráfica en el navegador. Este curso es parte de mi respuesta a esta mentalidad.
 
-Why Prolog?
+¿Por qué Prolog?
 ~~~~~~~~~~~
 
-Prolog is of course more associated with expert systems and torturing undergraduates than with production web applications. But I've found it an excellent system for building web applications as well.
+Prolog es por supuesto más asociado con los sistemas expertos y la tortura de estudiantes universitarios que con aplicaciones web en ambientes productivos. No obstante,  he hallado en él un excelente sistema para la construcción de aplicaciones web también.
 
 Prolog programs are simply *smaller* . Prolog programs are often *one tenth* the size of equivalent Java programs. And smallness is a virtuous cycle. Smallness encourages well written code, and well written code is easier to maintain and refactor and remains small.
 
