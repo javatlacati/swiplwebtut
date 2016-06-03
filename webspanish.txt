@@ -26,7 +26,7 @@ Si entra a este curso sabiendo bien SWI-Prolog y tiene algo de experiencia con d
 Tiempo
 ~~~~
 
-De 3-6 hras si realiza todos los ejercicios. Puede iniciar a escribir código 'real' tras terminar por lo menos la sección 3.
+De 3-6 horas si realiza todos los ejercicios. Puede iniciar a escribir código 'real' tras terminar por lo menos la sección 3.
 
 ¿Para quién es este curso?
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -40,23 +40,23 @@ Muchos programadores asumen que Prolog necesita estar hospedado dentro de un len
 
 Prolog es por supuesto más asociado con los sistemas expertos y la tortura de estudiantes universitarios que con aplicaciones web en ambientes productivos. No obstante,  he hallado en él un excelente sistema para la construcción de aplicaciones web también.
 
-Prolog programs are simply *smaller* . Prolog programs are often *one tenth* the size of equivalent Java programs. And smallness is a virtuous cycle. Smallness encourages well written code, and well written code is easier to maintain and refactor and remains small.
+Los programas en Prolog son simplemente *más pequeños* . Los programas en Prolog son a menudo *un décimo* del tamaño de su equivalente en programas de Java. Y la pequeñez es un ciclo virtuoso. La pequeñez alienta el código bien escrito, y el código bien escrito es más fácil de mantener y adaptar y permanece pequeño.
 
-What makes Prolog systems small? Complex question, but we can identify various factors. With backtracking instead of control structures, Prolog eliminates the 90% of loops that are actually iterators. Backtracking often eliminates error handling. Partial binding and incomplete structures eliminate much data reformatting. And in general, there's just a lot more case based reasoning, which means a lot less ceremony associated with handling of edge conditions. And of course you can put a small reasoner in to figure out complex business logic like 'who'se allowed to edit this?'
+¿Qué hace a los sitemas Prolog pequeños? Es una pregunta compleja, pero podemos identificar varios factores. With backtracking instead of control structures, Prolog eliminates the 90% of loops that are actually iterators. Backtracking often eliminates error handling. Partial binding and incomplete structures eliminate much data reformatting. And in general, there's just a lot more case based reasoning, which means a lot less ceremony associated with handling of edge conditions. And of course you can put a small reasoner in to figure out complex business logic like 'who'se allowed to edit this?'
 
-The SWI-Prolog web app framework is very friendly. You can edit running code and query make. (C-c C-m in the IDE editor) and keep going without disturbing state, and you can use the graphic debugger.
+The SWI-Prolog web app framework es muy amigable. Puede editar codigo ejecutándose y realizar consultas. (C-c C-m in the IDE editor) and keep going without disturbing state, and you can use the depurador gráfico.
 
-Does Anybody Actually Use This?
+¿Alguien Realmente Usa Esto?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-All these systems are in Prolog, using the web framework described in this tutorial.
+Todos estos sistemas están en Prolog, usando el framework web descrito en este tutorial.
 
 image:systemsusingprolog.png[The best way to be cool and ahead of the curve is by asking if large companies are using the technology before you try it]
 
 Getting The Most From This Course
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This course is this web page and a series of example programs. 
+Este curso es esta página web y una serie de programas de ejemplo. 
 
 The examples are designed to take reasonable sized bites at a subject, progressively building knowledge. I introduce some subjects in one place, then revisit them later to deepen understanding.
 
@@ -2279,23 +2279,23 @@ I'm calling it *Weblog* a library that makes common web interaction patterns eas
 
 If you're up for it, head over to https://github.com/Anniepoo/weblog"[the Weblog repo on github], grab a copy, then head to http://www.welie.com/patterns/index.php[Welie.com] and find yourself a pattern you like that isn't in weblog yet. Or drop me an email and I'll suggest some.
 
-Thanks
+Agradecimientos
 ------
 
-The author wishes to thank Jan Wielemaker, L.K. van der Meij, and confab for pointing out errors and improvements.
+La autora agradece a Jan Wielemaker, L.K. van der Meij, y confab por indicar errores y mejoras.
 
-Thanks to Michael Richter for some of the software pipeline setup that produces these tutorials.
+Gracias a Michael Richter por algo de la configuración de la tubería de software que produce estos tutoriales.
 
-This tutorial was partly written using the free online markdown editor http://dillinger.io/[Dillinger], and partly using the asciidoc plugin for Notepad++ . Thanks to both projects.
+Este tutorial fué parcialmente escrito usando el editor de markdown gratuito http://dillinger.io/[Dillinger], y parcialmente usando el plugin asciidoc para Notepad++ . Gracias a ambos proyectos.
 
-Conclusion
+Conclusión
 ----------
 
-Thanks for taking this tutorial. If I can improve anything please email me at annie@theelginworks.com .
+Gracias por tomar este tutorial. Si puedo mejorar algo por favor envíeme un correo electrónico a annie@theelginworks.com .
 
-If you make something beautiful, drop me a link.
+Si crea algo bello, compartame un link.
 
-Thanks,
+Gracias,
 
 Annie
 
