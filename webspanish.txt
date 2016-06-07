@@ -42,9 +42,9 @@ Prolog es por supuesto más asociado con los sistemas expertos y la tortura de e
 
 Los programas en Prolog son simplemente *más pequeños* . Los programas en Prolog son a menudo *un décimo* del tamaño de su equivalente en programas de Java. Y la pequeñez es un ciclo virtuoso. La pequeñez alienta el código bien escrito, y el código bien escrito es más fácil de mantener y adaptar y permanece pequeño.
 
-¿Qué hace a los sitemas Prolog pequeños? Es una pregunta compleja, pero podemos identificar varios factores. Con backtracking instead of control structures, Prolog eliminas el 90% de los ciclos que sond e hecho iteradores. Backtracking often eliminates error handling. Partial binding and incomplete structures eliminate much data reformatting. Y en general, existe mucho más razonamiento basado en casos, lo que significa que hay mucha menos ceremonia asociada con el manejo de condiciones frontera. Y por supuesto puede poner a small reasoner in to figure out lógica de negocio compleja like 'who'se allowed to edit this?'
+¿Qué hace a los sitemas Prolog pequeños? Es una pregunta compleja, pero podemos identificar varios factores. Con backtracking instead of control structures, Prolog eliminas el 90% de los ciclos que sond e hecho iteradores. Backtracking often eliminates error handling. Partial binding and incomplete structures eliminate much data reformatting. Y en general, existe mucho más razonamiento basado en casos, lo que significa que hay mucha menos ceremonia asociada con el manejo de condiciones frontera. Y por supuesto puede poner a small reasoner in to figure out lógica de negocio compleja como ¿A 'quién' se le permite editar esto?'
 
-El feamework de aplicaciones web de SWI-Prolog es muy amigable. Puede editar codigo ejecutáble y realizar consultas. (C-c C-m en el IDE) y continuar sin perturbar el estado, y puede usar el depurador gráfico.
+El framework de aplicaciones web de SWI-Prolog es muy amigable. Puede editar codigo ejecutáble y realizar consultas. (C-c C-m en el IDE) y continuar sin perturbar el estado, y puede usar el depurador gráfico.
 
 ¿Alguien Realmente Usa Esto?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,7 +73,7 @@ Para obtener el máximo de este curso encesitará:
 
 Los programas de ejemplo están etiquetados con un número de esquema el cual está a su vez alineado con el capítulo y el número de la sección, por lo que webserver1_2.pl es el código para capítulo 1 sección 2. They've long since drifted out of alignment, and I've just put the número en el encabezado.
 
-Different people will have different backgrounds and learning styles. Whatever works for you works.
+Personas diferentes tendrán diferentes bases y estilos de aprendizaje. Lo que funcione para usted funciona.
 
 http://www.swi-prolog.org/howto/http/'[This page] in the SWI-Prolog docs is useful as well
 
@@ -82,13 +82,13 @@ Quedándose atorado
 
 Muchos de los ejercicios en este tutorial fueron diseñados para push you to go explore the documentation. I feel students learn more from doing tasks like 'real programmers', and 'how do I do X' is a daily experience for all of us. So don't assume you can do all the exercises from this document! You can't!
 
-If you have questions and reasonable effort doesn't answer them, drop me email at annie@theelginworks.com . Please, if you're taking a beginning Prolog course, ask your instructor basic Prolog questions. Questions about family trees will be ignored. But if you're working on a web app, feel free.
+Si tiene preguntas y un esfuerzo razonable no las responde, escríbame un email a annie@theelginworks.com . Por favor, if you're taking a beginning Prolog course, ask your instructor basic Prolog questions. Questions about family trees will be ignored. But if you're working on a web app, feel free.
 
 Asking on ##Prolog on freenode.net is also a good way to get answers.
 
 Finally, I well could be wrong. This material's not that well documented in spots, and I'm making these tutorials partly to teach myself. While the web app *feels* nice to handle, in practice I've had a frustrating number of wtf moments. I'm hoping este tutorial will help change that.
 
-Learning By Doing
+Aprendizaje By Doing
 ^^^^^^^^^^^^^^^^^
 
 The only way to really become competent with an API is to use it. So, just as much as exercises or this page, I encourage you to make a project with the SWI tools. At the end of the course there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
@@ -97,7 +97,7 @@ If you're the "dive in and figure it out, make a toy project" sort, you may want
 
 With all that out of the way, on to el tutorial.
 
-Setting Up Handlers
+Configurando Manejadores
 -------------------
 
 Hello Web
@@ -111,9 +111,9 @@ Consulte el archivo helloweb.pl
 
 (Like always, I'm assuming you're reading the code in the SWI-Prolog IDE, so I'm not showing the code here).
 
-Web apps en SWI-Prolog can be run in various ways. The one we'll use to start is simply running as our own web server. I'm going to cover the larger issues later, so for now I'll give you a bit of voodoo code to get a basic server up and running
+Las aplicaciones web en SWI-Prolog pueden ser ejecutadas de varias maneras. The one we'll use to start is simply running as our own web server. I'm going to cover the larger issues later, so for now I'll give you a bit of voodoo code to get a basic server up and running
 
-These lines include modules needed for our basic server
+These lines include módulos necesarios para nuestro servidor básico
 
 ----
 :- use_module(library(http/thread_httpd)).
@@ -245,7 +245,7 @@ You're probably thinking, other than syntactic change, so what?
 
 On to
 
-Defining new abstract paths
+Defining new rutas abstractas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .New Abstract Path example
@@ -291,10 +291,10 @@ Moving the whole shebang
 Your server will some day probably be proxied to by apache, so your root path may be changed. You can change all abstract paths at once by redefining the setting http:prefix.
 
 ****
-Exercise
+Ejercicio
 Change the setting and confirm it works
 
-Question
+Pregunta
 
 Does it still serve at the old location?
 ****
@@ -421,7 +421,7 @@ Ouch!
 
 Clearly we're not doing this for long. But it's nice to know you can just print if the handy helper stuff is fighting you.
 
-Using print_html
+Usando print_html
 ~~~~~~~~~~~~~~~~
 
 .Using print_html example
@@ -457,10 +457,10 @@ say_hi(_Request) :-
      '</html>']).
 ----
 
-Representing HTML
-~~~~~~~~~~~~~~~~~
+Representación de HTML
+~~~~~~~~~~~~~~~~~~~~~~
 
-SWI-Prolog has 3 representations for HTML. It can be a single atom, like in 2_1, or a list of tokens, (tokenized html), or a term form (termerized html) that we'll show next. Keeping track of which form you're working with can be one of the more confusing bits. So I'm introducing some terminology that Jan doesn't use in the SWI-Prolog documentation.
+SWI-Prolog tiene 3 representaciones para HTML. It can be a single atom, like in 2_1, or a list of tokens, (tokenized html), or a term form (termerized html) that we'll show next. Keeping track of which form you're working with can be one of the more confusing bits. So I'm introducing some terminology that Jan doesn't use in the SWI-Prolog documentation.
 
 *HTML atom*::
    an atom or string with HTML in it (the 2_1 representation)
@@ -788,7 +788,7 @@ some_included_stuff -->
     html([p('Some included stuff')]).
 ----
 
-Of course you can pass semantic arguments
+Por supuesto you can pass semantic arguments
 
 ----
 \more_included_stuff('Whoop Whoop!'),
@@ -1059,7 +1059,7 @@ user:head
 
 You can do the same thing with the head. Add a hook predicate for user:head. This is a possible, but rarely the best, method of including Javascript and CSS. More often, it's a great way to get things like the title and keywords set up.
 
-Of course you can have more than one style. At my employer we use one style for content to be viewed on the web and one style for content to be viewed in the virtual world.
+Por supuesto you can have more than one style. At my employer we use one style for content to be viewed on the web and one style for content to be viewed in the virtual world.
 
 ****
 Ejercicio:
@@ -1278,7 +1278,7 @@ An explanation, if you don't know what sessions are.
 
 The basic design of the web is stateless. Every transaction is independent of every other transaction. But we want to have an ongoign conversation with the user - when they put something in their shopping cart, we want to remember it.
 
-Enter sessions. We give the browser a unique number (usually as a 'cookie') that they give back to us. We then look up the data associated with that session number, and we have the user's data. Of course eventually memory would fill with sessions, so we delete old sessions. If we don't have the data for a session ID, we just start a new one. You can see this by going to a site, putting something in a shopping cart, then not coming back to the site for months.
+Enter sessions. We give the browser a unique number (usually as a 'cookie') that they give back to us. We then look up the data associated with that session number, and we have the user's data. Por supuesto eventually memory would fill with sessions, so we delete old sessions. If we don't have the data for a session ID, we just start a new one. You can see this by going to a site, putting something in a shopping cart, then not coming back to the site for months.
 
 Now, on to handling sessions en SWI-Prolog.
 
@@ -1305,7 +1305,7 @@ Yup. It is. You got sessions.
 
 You know that lovable school/military/fascist youth camp tradition of giving people horrible nicknames? Ones they could never change? You didn't find it lovable? Me neither.
 
-Lets build a site that gives people more affirming nicknames. Of course, once we pick their nickname, they're stuck with it as long as their session lasts. Right, Oh Blessed One?
+Lets build a site that gives people more affirming nicknames. Por supuesto, once we pick their nickname, they're stuck with it as long as their session lasts. Right, Oh Blessed One?
 
 Each request has a current session. That session has it's own knowledge base that can be controlled with +http_session_assert+, +http_session_retractall+, and the obvious analogous calls, and queried with +http_session_data/1+.  It's elegant and easy.
 
@@ -1389,7 +1389,7 @@ Now, that's great if whoever wrote the login_page handler gave it an ID. But if 
 a(href=location_by_id(login_page_handler), 'Log in')
 ----
 
-Of course it's probably in some other module. We can handle that (it's not obvious we can, we're in termerized HTML, not Prolog, remember)
+Por supuesto it's probably in some other module. We can handle that (it's not obvious we can, we're in termerized HTML, not Prolog, remember)
 
 ----
 a(href=location_by_id(login_module:login_page_handler), 'Log in')
@@ -1517,7 +1517,7 @@ We can customize the status page by defining a hook predicate.
 				],
 				{|html(URL)||
 	<h1>Sorry, no such page</h1>
-	<p>I'm afraid you asked for a page we do not have.  Please try the
+	<p>I'm afraid you asked for a page we do not have.  Por favor try the
 	search box to locate the page you are looking for.
 				|}),
 			   HTML).
@@ -2076,7 +2076,7 @@ retract_my_table(Id, Name, Department) :- ...
 retractall_my_table(Id, Name, Department) :- ...
 ----
 
-Of course you'll want to attach a file so the library persists to disk. Attaching the database file is also simple. Just use +db_attach/2+.
+Por supuesto you'll want to attach a file so the library persists to disk. Attaching the database file is also simple. Just use +db_attach/2+.
 
 You'll need to decide when to sync the database. 
 
