@@ -62,36 +62,36 @@ Los ejemplos están diseñados para tomar pedazos de tamaño razonable acerca de
 
 Los programas de ejemplo *not* están reproducidos aquí. Deseo que usted de hecho *observe* y *juegue con* el código. Por lo tanto ojalá que esté animado a jugar si tiene que leer código localmente. Puede obtener los ejemplos en https://github.com/Anniepoo/swiplwebtut
 
-Para obtener el máximo de este curso encesitará:
+Para obtener el máximo de este curso necesitará:
 
 * Tener una instalación funcional de http://www.swi-prolog.org[swi-Prolog]
 * Obtener los archivos de ejemplo desde https://github.com/Anniepoo/swiplwebtut[github]
 * Entender Prolog y el dialecto SWI-Prolog's antes de intentar construir webapps
 * Leer el texto
-* Intentar cada prorgama de ejemplo. Especialmente, mirar al código de la página resultante. ¡Experimente!
+* Intentar cada programa de ejemplo. Especialmente, mirar al código de la página resultante. ¡Experimente!
 * Realizar los ejercicios
 
-Los programas de ejemplo están etiquetados con un número de esquema el cual está a su vez alineado con el capítulo y el número de la sección, por lo que webserver1_2.pl es el código para capítulo 1 sección 2. They've long since drifted out of alignment, and I've just put the número en el encabezado.
+Los programas de ejemplo están etiquetados con un número de esquema el cual está a su vez alineado con el capítulo y el número de la sección, por lo que webserver1_2.pl es el código para capítulo 1 sección 2. Desde entonces se han desalineado, y yo simplemente coloqué el número en el encabezado.
 
 Personas diferentes tendrán diferentes bases y estilos de aprendizaje. Lo que funcione para usted funciona.
 
-http://www.swi-prolog.org/howto/http/'[This page] in the SWI-Prolog docs is useful as well
+http://www.swi-prolog.org/howto/http/'[Esta página] en la documentación de SWI-Prolog también es útil
 
 Quedándose atorado
 ^^^^^^^^^^^^^
 
-Muchos de los ejercicios en este tutorial fueron diseñados para push you to go explore the documentation. I feel students learn more from doing tasks like 'real programmers', and 'how do I do X' is a daily experience for all of us. So don't assume you can do all the exercises from this document! You can't!
+Muchos de los ejercicios en este tutorial fueron diseñados para obligarle a explorar la documentación. Siento que los estudiantes aprenden más realizando tareas como 'programadores de verdad', y '¿Cómo hago X?' es una experiencia cotidiana para todos nosotros. ¡Así que no asuma que puede realizar todos los ejercicios de este documento! ¡No puede!
 
-Si tiene preguntas y un esfuerzo razonable no las responde, escríbame un email a annie@theelginworks.com . Por favor, if you're taking a beginning Prolog course, ask your instructor basic Prolog questions. Questions about family trees will be ignored. But if you're working on a web app, feel free.
+Si tiene preguntas y un esfuerzo razonable no las responde, escríbame un email a annie@theelginworks.com . Por favor, si esta tomando un curso de principiante de Prolog, pregunte a su instructor las preguntas básicas de Prolog. Preguntas acerca de arboles familiares serán ignoradas. Pero si esta trabajando en una web app, siéntase libre.
 
-Asking on ##Prolog on freenode.net is also a good way to get answers.
+Preguntando de ##Prolog en freenode.net es tambien una buena manera de obtener respuestas.
 
-Finally, I well could be wrong. This material's not that well documented in spots, and I'm making these tutorials partly to teach myself. While the web app *feels* nice to handle, in practice I've had a frustrating number of wtf moments. I'm hoping este tutorial will help change that.
+Finalmente, podría equivocarme. este material no está tan bien documentado en algunos lugares, y estoy haciendo estos tutoriales parcialmente para enseñarme a mi misma. Mientras que la web app *se siente* bien al manejarla, en la practica tuve un numero de momentos frustrantes de incertidumbre. Deseo que este tutorial ayude a cambiar eso.
 
-Aprendizaje By Doing
+Aprendizaje por Realización
 ^^^^^^^^^^^^^^^^^
 
-The only way to really become competent with an API is to use it. So, just as much as exercises or this page, I encourage you to make a project with the SWI tools. At the end of the course there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
+La única manera de ralmente volverse competente con una API es usarla. Así que, tanto como los ejercicios de esta pagina, le invito a realizar un proyecto con las herramientas de SWI. Al finalizar esta curso there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
 
 If you're the "dive in and figure it out, make a toy project" sort, you may want to peek ahead to the parameters section at some point, as the course order slogs through all of html generation first, an orderly process but one that means you're limited what you can build til you get there.
 
