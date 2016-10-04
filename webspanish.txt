@@ -42,7 +42,7 @@ Prolog es por supuesto más asociado con los sistemas expertos y la tortura de e
 
 Los programas en Prolog son simplemente *más pequeños* . Los programas en Prolog son a menudo *un décimo* del tamaño de su equivalente en programas de Java. Y la pequeñez es un ciclo virtuoso. La pequeñez alienta el código bien escrito, y el código bien escrito es más fácil de mantener y adaptar y permanece pequeño.
 
-¿Qué hace a los sistemas Prolog pequeños? Es una pregunta compleja, pero podemos identificar varios factores. Con backtracking instead of control structures, Prolog eliminas el 90% de los ciclos que sond e hecho iteradores. Backtracking often eliminates error handling. Partial binding and incomplete structures eliminate much data reformatting. Y en general, existe mucho más razonamiento basado en casos, lo que significa que hay mucha menos ceremonia asociada con el manejo de condiciones frontera. Y por supuesto puede poner a small reasoner in to figure out lógica de negocio compleja como ¿A 'quién' se le permite editar esto?'
+¿Qué hace a los sistemas Prolog pequeños? Es una pregunta compleja, pero podemos identificar varios factores. Con backtracking en vez de estructuras de control, Prolog eliminas el 90% de los ciclos que son de hecho iteradores. El backtracking a menudo elimina el manejo de errores. Partial binding and incomplete structures eliminate much data reformatting. Y en general, existe mucho más razonamiento basado en casos, lo que significa que hay mucha menos ceremonia asociada con el manejo de condiciones frontera. Y por supuesto puede poner a small reasoner in to figure out lógica de negocio compleja como ¿A 'quién' se le permite editar esto?'
 
 El framework de aplicaciones web de SWI-Prolog es muy amigable. Puede editar código ejecutable y realizar consultas. (C-c C-m en el IDE) y continuar sin perturbar el estado, y puede usar el depurador gráfico.
 
@@ -51,22 +51,22 @@ El framework de aplicaciones web de SWI-Prolog es muy amigable. Puede editar có
 
 Todos estos sistemas están en Prolog, usando el framework web descrito en este tutorial.
 
-image:systemsusingprolog.png[La mejor manera de ser cool y adelantado ala curva es mediante cuestionarse si las grandes compañias están usando la tecnología antes de que la pruebe]
+image:systemsusingprolog.png[La mejor manera de ser cool y adelantado ala curva es mediante cuestionarse si las grandes compañías están usando la tecnología antes de que la pruebe]
 
 Sacando el Máximo de Este Curso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Este curso es esta página web y una serie de programas de ejemplo. 
 
-Los ejemplos están diseñados para tomar pedazos de tamaño razonable acerca de un tema, progresivamente construir conocimiento. Yo presento algunos temas en un solo lugar, luego los visito de nuevo y luego despues para una compresnsión ma´s profunda.
+Los ejemplos están diseñados para tomar pedazos de tamaño razonable acerca de un tema, progresivamente construir conocimiento. Yo presento algunos temas en un solo lugar, luego los visito de nuevo y luego después para una comprensión más profunda.
 
-Los programas de ejemplo *not* están reproducidos aquí. Deseo que usted de hecho *observe* y *juegue con* el código. Por lo tanto ojalá que esté animado a jugar si tiene que leer código localmente. Puede obtener los ejemplos en https://github.com/Anniepoo/swiplwebtut
+Los programas de ejemplo *no* están reproducidos aquí. Deseo que usted de hecho *observe* y *juegue con* el código. Por lo tanto ojalá que esté animado a jugar si tiene que leer código localmente. Puede obtener los ejemplos en https://github.com/Anniepoo/swiplwebtut
 
 Para obtener el máximo de este curso necesitará:
 
 * Tener una instalación funcional de http://www.swi-prolog.org[swi-Prolog]
 * Obtener los archivos de ejemplo desde https://github.com/Anniepoo/swiplwebtut[github]
-* Entender Prolog y el dialecto SWI-Prolog's antes de intentar construir webapps
+* Entender Prolog y el dialecto de SWI-Prolog antes de intentar construir webapps
 * Leer el texto
 * Intentar cada programa de ejemplo. Especialmente, mirar al código de la página resultante. ¡Experimente!
 * Realizar los ejercicios
@@ -84,7 +84,7 @@ Muchos de los ejercicios en este tutorial fueron diseñados para obligarle a exp
 
 Si tiene preguntas y un esfuerzo razonable no las responde, escríbame un email a annie@theelginworks.com . Por favor, si esta tomando un curso de principiante de Prolog, pregunte a su instructor las preguntas básicas de Prolog. Preguntas acerca de arboles familiares serán ignoradas. Pero si esta trabajando en una web app, siéntase libre.
 
-Preguntando de ##Prolog en freenode.net es tambien una buena manera de obtener respuestas.
+Preguntando de ##Prolog en freenode.net es también una buena manera de obtener respuestas.
 
 Finalmente, podría equivocarme. este material no está tan bien documentado en algunos lugares, y estoy haciendo estos tutoriales parcialmente para enseñarme a mi misma. Mientras que la web app *se siente* bien al manejarla, en la practica tuve un numero de momentos frustrantes de incertidumbre. Deseo que este tutorial ayude a cambiar eso.
 
@@ -93,7 +93,7 @@ Aprendizaje por Realización
 
 La única manera de realmente volverse competente con una API es usarla. Así que, tanto como los ejercicios de esta pagina, le invito a realizar un proyecto con las herramientas de SWI. Al finalizar esta curso existe un motivo para que la gente ayude con una librería de patrones web. Si no tiene un proyecto específico, podría considerar realizar este.
 
-Si es del tipo "echarse un chapuzón y darse a la idea, hacoer un proyecto de juguete", tal vez desee echar un vistazo a la sección de parámetros en algún momento, debido a que el orden del curso suda tinta sobre la generación de  html primero, un proceso ordenado pero que implica que está limitado a lo que usted pueda construir hasta que llegue hasta ese punto.
+Si es del tipo "echarse un chapuzón y darse a la idea, hacer un proyecto de juguete", tal vez desee echar un vistazo a la sección de parámetros en algún momento, debido a que el orden del curso suda tinta sobre la generación de  html primero, un proceso ordenado pero que implica que está limitado a lo que usted pueda construir hasta que llegue hasta ese punto.
 
 Con todo esto fuera del camino, ahondemos en el tutorial.
 
@@ -128,41 +128,41 @@ server(Port) :-
         http_server(http_dispatch, [port(Port)]).
 ----
 
-Query +server(8000).+  to start the server on port 8000 and browse http://127.0.0.1:8000/
+Consulte +server(8000).+  para iniciar el servidor en el puerto 8000 y navegue a http://127.0.0.1:8000/
 
 ****
-Exercise
-Run helloweb.pl, start the server, and look at result in browser
+Ejercicio
+Ejecute helloweb.pl, inicie el servidor, y mire el resultado en su navegador
 ****
 
-Handlers
+Manejadores
 ~~~~~~~~
 
-SWI-Prolog web apps are defined as a collection of *handlers* . The first topic we'll cover is defining handlers. If you know Ruby on Rails these are like 'routes'.
+Las aplicaciones web de SWI-Prolog están definidas como una colección de *manejadores*. El primer tema que cubriremos es la definición de manejadores. Si conoce Ruby on Rails estos son como las 'rutas'.
 
-We have a single handler that handles the root path /
+Tenemos un único manejador que maneja la ruta raíz /
 
 ----
 :- http_handler(/, say_hi, []).
 ----
 
-This declaration says 'handle the root of the tree by querying the goal say_hi.'
+Esta declaracion dice 'maneja la raíz del árbol mediante la consulta del objetivo say_hi.'
 
-The first argument, /, is an atom that means 'the root of the URI'. So if we instead wanted our server to serve http://127.0.0.1:8000/twinkly/elf/weenblat.xls we'd say
+El primer argumento, /, es un atomo que significa 'la raíz del URI'. Así que si hubiéramos querido que nuestro servidor sirviera http://127.0.0.1:8000/twinkly/elf/weenblat.xls le hubiéramos dicho
 
 ----
 :- http_handler('/twinkly/elf/weenblat.xls', say_hi, []).
 ----
 
 ****
-Exercise
-serve Hello World from http://localhost:8000/hello.txt
+Ejercicio
+Sirva Hola Mundo desde http://localhost:8000/hello.txt
 
-Exercise (harder)
-serve Hello World from any URI under http://localhost:8000/
+Ejercicio (más difícil)
+Sirva Hola Mundo desde cualquier URI dentro de http://localhost:8000/
 ****
 
-The second argument will be called with +call(Arg, Request)+, where Request is the request info. This enables the handy trick of making similar handlers into a single pred with specialization, like this:
+El segundo argumento será llamado mediante +call(Arg, Request)+, donde Request es la información de la petición. This enables the handy trick of making similar handlers into a single pred with specialization, like this:
 
 ----
 :- http_handler('/something/pleasant', my_handler_code(pleasant), []).
@@ -198,7 +198,7 @@ Don't worry, this is NOT the usual way of writing content. But that's chapter 2!
 Ejercicio:
 Add handlers to helloweb.pl that print two different hello messages and share a single handler rule.
 
-Exercise (harder):
+Ejercicio (más difícil):
 serve up a small png image just using format calls
 
 Ejercicio:
@@ -235,7 +235,7 @@ Por ejemplo abstract_path.pl our handler declarations have changed. They now loo
 :- http_handler(root(taco), say_taco, []).
 ----
 
-The first is our old friend, the root handler, which serves http://127.0.0.1:8000/
+El primero es nuestro viejo amigo, the root handler, which serves http://127.0.0.1:8000/
 
 Paths are offsets from an abstract base. In our case, the only abstract base is the built in one, root, which is defined as /. 
 
@@ -254,7 +254,7 @@ Defining new rutas abstractas
 Consulte el archivo new_abstract_path.pl
 =====
 
-The example new_abstract_path.pl code adds a hook predicate that defines a new abstract path. With it, we can now say files('zap.gif') to serve /f/zap.gif. If we move the files somewhere else we can just change one line.
+El código de ejemplo new_abstract_path.pl agrega un hook predicate that defines a new abstract path. With it, we can now say files('zap.gif') to serve /f/zap.gif. If we move the files somewhere else we can just change one line.
 
 IMPORTANT: The path to the root of *files* (second arg) is an absolute path specification, not root(.) 
 
@@ -1068,7 +1068,7 @@ Add a header and footer to your web page from the +html//1+ exercises using body
 Ejercicio:
 Make a pair of web pages that have some main content and some 'ads' (feel free to just make a div and some text for the ads) served from /free  and the same content without ads served from /paid. Minimize repeated code.
 
-Exercise (small project):
+Ejercicio (small project):
 Metadata like keywords is often treated as 'somebody elses job' by both web designers and engineers. For an explanation of the HTML META element, see https://en.wikipedia.org/wiki/Meta_element
 
 Build a few simple pages that share a style, imagining this could be a large, complex web application. 
@@ -1169,11 +1169,11 @@ Add an inclusion call to your page that takes an argument which is displayed in 
 Ejercicio:
 Look at some project you've worked on that made a more or less complex dynamic page. Would it have been easier to code with mailman?
 
-Exercise (harder)
+Ejercicio (más difícil)
 Many pre/non-jquery javascript libraries include some javascript snippet that should appear at the bottom of the page (so it runs after the page loads).
 Set up a way in your project that inclusions that need such a snippet can send them without the widget user having to remember.
 
-Exercise
+Ejercicio
 Use the debugger to look at what comes into your overload of user:body and user:head when you are using mailman.
 
 ****
@@ -1746,7 +1746,7 @@ html_head:mime_include(text/'x-prolog', Path) --> !,
 There are a number of web resources you might need - perhaps your page needs some XML definition, or XSL fonts with the @import mechanism, or maybe some compile after load script language. Whatever you need to send, you can do it with the resource manager.
 
 ****
-Exercise (harder): Use mime_include//2, and file_mime_type/2 
+Ejercicio (más difícil): Use mime_include//2, and file_mime_type/2 
 Coffeescript is a preprocessor that takes in .coffee files and emits javascript. 
 Assume your make system generates an associated .js file with a parallel name in the same directory.
 
@@ -2251,7 +2251,7 @@ We're A Big Offical Site, We Have A NOC
 
 Look cool, make yourself an admin page that shows http://www.swi-prolog.org/pldoc/doc/home/vnc/prolog/src/plweb/stats.pl[server stats]
 
-Security
+Seguridad
 --------
 
 Security Checklist
@@ -2293,7 +2293,7 @@ Conclusión
 
 Gracias por tomar este tutorial. Si puedo mejorar algo por favor envíeme un correo electrónico a annie@theelginworks.com .
 
-Si crea algo bello, compartame un link.
+Si crea algo bello, compártame un link.
 
 Gracias,
 
