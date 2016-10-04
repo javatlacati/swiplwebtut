@@ -31,7 +31,7 @@ De 3-6 horas si realiza todos los ejercicios. Puede iniciar a escribir código '
 ¿Para quién es este curso?
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Este curso es para cualquiera que conozca SWI-Prolog reasonablemente bien y desee aprender el framework de aplicaciones web que viene embebido en SWI-Prolog. También neesitará algo de fluidez con los fundamentos del desarrollo web tales como HTML, CSS, y HTTP.
+Este curso es para cualquiera que conozca SWI-Prolog razonablemente bien y desee aprender el framework de aplicaciones web que viene embebido en SWI-Prolog. También necesitará algo de fluidez con los fundamentos del desarrollo web tales como HTML, CSS, y HTTP.
 
 Muchos programadores asumen que Prolog necesita estar hospedado dentro de un lenguaje 'normal'. No estoy segura del porqué. Ciertamente xpce no sería adecuado para muchos sistemas de escritorio con interfaz gráfica. Sin embargo, los susodichos están volviéndose raros. Incluso, los sistemas de escritorio que he estado escribiendo recientemente han sido escritos como servidores web que muestran la interfaz gráfica en el navegador. Este curso es parte de mi respuesta a esta mentalidad.
 
@@ -42,16 +42,16 @@ Prolog es por supuesto más asociado con los sistemas expertos y la tortura de e
 
 Los programas en Prolog son simplemente *más pequeños* . Los programas en Prolog son a menudo *un décimo* del tamaño de su equivalente en programas de Java. Y la pequeñez es un ciclo virtuoso. La pequeñez alienta el código bien escrito, y el código bien escrito es más fácil de mantener y adaptar y permanece pequeño.
 
-¿Qué hace a los sitemas Prolog pequeños? Es una pregunta compleja, pero podemos identificar varios factores. Con backtracking instead of control structures, Prolog eliminas el 90% de los ciclos que sond e hecho iteradores. Backtracking often eliminates error handling. Partial binding and incomplete structures eliminate much data reformatting. Y en general, existe mucho más razonamiento basado en casos, lo que significa que hay mucha menos ceremonia asociada con el manejo de condiciones frontera. Y por supuesto puede poner a small reasoner in to figure out lógica de negocio compleja como ¿A 'quién' se le permite editar esto?'
+¿Qué hace a los sistemas Prolog pequeños? Es una pregunta compleja, pero podemos identificar varios factores. Con backtracking instead of control structures, Prolog eliminas el 90% de los ciclos que sond e hecho iteradores. Backtracking often eliminates error handling. Partial binding and incomplete structures eliminate much data reformatting. Y en general, existe mucho más razonamiento basado en casos, lo que significa que hay mucha menos ceremonia asociada con el manejo de condiciones frontera. Y por supuesto puede poner a small reasoner in to figure out lógica de negocio compleja como ¿A 'quién' se le permite editar esto?'
 
-El framework de aplicaciones web de SWI-Prolog es muy amigable. Puede editar codigo ejecutáble y realizar consultas. (C-c C-m en el IDE) y continuar sin perturbar el estado, y puede usar el depurador gráfico.
+El framework de aplicaciones web de SWI-Prolog es muy amigable. Puede editar código ejecutable y realizar consultas. (C-c C-m en el IDE) y continuar sin perturbar el estado, y puede usar el depurador gráfico.
 
 ¿Alguien Realmente Usa Esto?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Todos estos sistemas están en Prolog, usando el framework web descrito en este tutorial.
 
-image:systemsusingprolog.png[La mejor manera de ser cool y adelantado ala curva es mediante cuesrionarse si las grandes compañias están usando la tecnología antes de que la pruebe]
+image:systemsusingprolog.png[La mejor manera de ser cool y adelantado ala curva es mediante cuestionarse si las grandes compañias están usando la tecnología antes de que la pruebe]
 
 Sacando el Máximo de Este Curso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,29 +91,29 @@ Finalmente, podría equivocarme. este material no está tan bien documentado en 
 Aprendizaje por Realización
 ^^^^^^^^^^^^^^^^^
 
-La única manera de ralmente volverse competente con una API es usarla. Así que, tanto como los ejercicios de esta pagina, le invito a realizar un proyecto con las herramientas de SWI. Al finalizar esta curso there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
+La única manera de realmente volverse competente con una API es usarla. Así que, tanto como los ejercicios de esta pagina, le invito a realizar un proyecto con las herramientas de SWI. Al finalizar esta curso existe un motivo para que la gente ayude con una librería de patrones web. Si no tiene un proyecto específico, podría considerar realizar este.
 
-If you're the "dive in and figure it out, make a toy project" sort, you may want to peek ahead to the parameters section at some point, as the course order slogs through all of html generation first, an orderly process but one that means you're limited what you can build til you get there.
+Si es del tipo "echarse un chapuzón y darse a la idea, hacoer un proyecto de juguete", tal vez desee echar un vistazo a la sección de parámetros en algún momento, debido a que el orden del curso suda tinta sobre la generación de  html primero, un proceso ordenado pero que implica que está limitado a lo que usted pueda construir hasta que llegue hasta ese punto.
 
-With all that out of the way, on to el tutorial.
+Con todo esto fuera del camino, ahondemos en el tutorial.
 
 Configurando Manejadores
 -------------------
 
-Hello Web
+Hola Web
 ~~~~~~~~~
 
-.Hello Web example
+.Ejemplo Hola Web
 [NOTE]
 =====
 Consulte el archivo helloweb.pl
 =====
 
-(Like always, I'm assuming you're reading the code in the SWI-Prolog IDE, so I'm not showing the code here).
+(Como siempre, estoy asumiendo que lee el código en el IDE SWI-Prolog, así que no mostrare el código aquí).
 
-Las aplicaciones web en SWI-Prolog pueden ser ejecutadas de varias maneras. The one we'll use to start is simply running as our own web server. I'm going to cover the larger issues later, so for now I'll give you a bit of voodoo code to get a basic server up and running
+Las aplicaciones web en SWI-Prolog pueden ser ejecutadas de varias maneras. La que usaremos para iniciar es simplemente ejecutar como nuestro servidor web. Cubriré los problemas mas grandes posteriormente, así que por ahora le daré un poco de código voodú para tener un servidor básico listo y ejecutándose
 
-These lines include módulos necesarios para nuestro servidor básico
+Estas líneas incluyen los módulos necesarios para nuestro servidor básico
 
 ----
 :- use_module(library(http/thread_httpd)).
@@ -121,7 +121,7 @@ These lines include módulos necesarios para nuestro servidor básico
 :- use_module(library(http/http_dispatch)).
 ----
 
-And this is our main server loop.
+Y éste es nuestro ciclo principal del servidor.
 
 ----
 server(Port) :-
