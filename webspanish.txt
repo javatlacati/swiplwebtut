@@ -162,7 +162,7 @@ Ejercicio (más difícil)
 Sirva Hola Mundo desde cualquier URI dentro de http://localhost:8000/
 ****
 
-El segundo argumento será llamado mediante +call(Arg, Request)+, donde Request es la información de la petición. This enables the handy trick of making similar handlers into a single pred with specialization, like this:
+El segundo argumento será llamado mediante +call(Arg, Request)+, donde Request es la información de la petición. Esto habilita el util truco de la creacion de manejadores similares dentro de un único predicado con especialización, como esto:
 
 ----
 :- http_handler('/something/pleasant', my_handler_code(pleasant), []).
@@ -177,9 +177,9 @@ my_handler_code(WhatToSay, Request) :-
     and Request is a complex term that represents the httprequest (covered later)
 ----
 
-The last argument is a set of options. The most interesting of these is +prefix+, which lets a single handler handle everything below the route as well. If you need to override an existing handler, you may need the priority option. +priority(0)+ is default.
+El último argumento es un conjunto de opciones. La mas interesante de estas es +prefix+, la cual permite a un único manejador manejar todo por debajo de la ruta también. Si necesita to override an existing handler, you may need the priority option. +priority(0)+ is default.
 
-Now we're ready for the actual handler rule.
+Ahora estamos listos para la verdadera regla del manejador.
 
 When the rule is called the current input stream has been redirected to read the HTTPRequest, and current output has been redirected out the socket, so all we need do is print the response. 
 
@@ -196,14 +196,14 @@ Don't worry, this is NOT the usual way of writing content. But that's chapter 2!
 .Different hello messages
 ****
 Ejercicio:
-Add handlers to helloweb.pl that print two different hello messages and share a single handler rule.
+Agregue handlers to helloweb.pl that print two different hello messages and share a single handler rule.
 
 Ejercicio (más difícil):
-serve up a small png image just using format calls
+Sirva una pequeña imágen png usando solamente llamadas format
 
 Ejercicio:
-Add the Server: header to the response, using +version/1+ to get the SWI-Prolog version of your SWI-Prolog install.
-The header should look something like 
+Agregue al Servidor: header to the response, using +version/1+ to get the SWI-Prolog version of your SWI-Prolog install.
+El encabezado deberá verse algo como
 
 	Server: Apache/2.4.1 (Unix)
 ****
@@ -245,10 +245,10 @@ You're probably thinking, other than syntactic change, so what?
 
 On to
 
-Defining new rutas abstractas
+Definición de nuevas rutas abstractas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.New Abstract Path example
+.Ejemplo de nuevas rutas abstractas
 [NOTE]
 =====
 Consulte el archivo new_abstract_path.pl
@@ -271,16 +271,16 @@ IMPORTANT: I was tryig to make these 'abstract paths' be abstract files paths fo
 
 .sorry, not here exercise
 ****
-EXERCISE:
+EJERCICIO:
 create a new abstract path /food/ and move taco to be under it
 
-EXERCISE:
+EJERCICIO:
 Abstract URI paths really only become useful as a website grows, and things need moved around.
 Extend the previous exercise to have /food/mexican/,  /food/french/, /food/japanese/ and serve an example food for each one.
 Arrange your code so the paths can be changed to /cuisine/mexican/,  /cuisine/french/, and /cuisine/japanese/ by changing a single http:location definition.
 Hint, use +http_absolute_uri/2+
 
-EXERCISE:
+EJERCICIO:
 Move a handler, use the make command, then try to access the old location. It may work until you restart.
 Lesson learned - restart after you muck with location.
 ****
@@ -507,7 +507,7 @@ That's what SWI-Prolog does, in a sorta sideways way. Here's an example:
         []),
 ----
 
-Notice that we're using +phrase/2+. +phrase+'s first argument is a library DCG, +html//1+, whose argument is a DSL (domain specific language) which defines the HTML it recognizes. So, phrase/2 will unify in the above when +TokenizedHtml+ is the tokenized HTML equivalent of the red stuff, the 'termerized HTML' defined by the first arg of +html//1+.
+Notice that we're using +phrase/2+. +phrase+'s first argument is a library DCG, +html//1+, whose argument is a DSL (domain specific language) which defines the HTML it recognizes. Así que, phrase/2 will unify in the above when +TokenizedHtml+ is the tokenized HTML equivalent of the red stuff, the 'termerized HTML' defined by the first arg of +html//1+.
 
 It is this DSL which is our 'termerized HTML'.
 
@@ -597,10 +597,10 @@ Here's most of the forms you can apply:
 
 CAUTION: One form you *won't* see is a nested list.  +[p('a para'), [p('in a nested list')]]+ is *not* valid termerized HTML. You've been warned.
 
-Inner HTML
+HTML interno
 ^^^^^^^^^^
 
-A simple headline with plain text inside it
+Un encabezado simple con texto plano dentro de él
 
 ----
     h1('A Simple Web Page'),
@@ -667,7 +667,7 @@ p(['two strings', 'two strings')
 
 Though the first doesn't leave a space between them
 
-Attributes
+Atributos
 ^^^^^^^^^^
 
 This paragraph has a style and tooltip text.
@@ -682,7 +682,7 @@ If there's a single attribute the list can be omitted
 p(class=foo, 'some text')
 ----
 
-Notice that SWI-Prolog will put the quotes around foo in the HTML. As always in Prolog you have to quote atoms with iffy chars in them, like the src and alt attributes below.
+Note que SWI-Prolog pondrá the quotes around foo in the HTML. As always in Prolog you have to quote atoms with iffy chars in them, like the src and alt attributes below.
 
 ----
 img([src='obama.png', class=pres, height=128, width=128, alt='Barack Hussain Obama'], [])
@@ -728,7 +728,7 @@ A list not interpretable as right side of operator is joined with spaces. This i
 class=[emphasize, left, question]
 ----
 
-becomes
+se vuelve
 
 ----
 class="emphasize left question"
@@ -812,7 +812,7 @@ included_stuff(X) -->
     and_a_third_inclusion(X).
 ----
 
-Included lists are treated as literal, tokenized HTML to be included. So, you can include a block of HTML set up with a normal editor
+Included lists are treated as literal, tokenized HTML to be included. Así que, you can include a block of HTML set up with a normal editor
 
 ----
     \['<i>in italic</i>', '<b>now we have bold</b>'],
@@ -931,7 +931,7 @@ hand_drawn_box(InnerHTML) -->
             ... more totally unreadable javascript ... ]).
 ----
 
-We try this, and, after debugging the ugly javascript, it works. Cool! So, being organized, we move it into it's own module. And suddenly it fails when we try this:
+We try this, and, after debugging the ugly javascript, it works. Cool! Así que, being organized, we move it into it's own module. And suddenly it fails when we try this:
 
 ----
 %in module1
@@ -1309,7 +1309,7 @@ Lets build a site that gives people more affirming nicknames. Por supuesto, once
 
 Each request has a current session. That session has it's own knowledge base that can be controlled with +http_session_assert+, +http_session_retractall+, and the obvious analogous calls, and queried with +http_session_data/1+.  It's elegant and easy.
 
-So, for our example, we'll check to see if we've given this person a nick. If we find one in their session data, great. 
+Así que, for our example, we'll check to see if we've given this person a nick. If we find one in their session data, great. 
 
 ----
 nick_name(Nick) :-
@@ -1405,7 +1405,7 @@ Get a URI for an ID
 http_location_by_id(+ID, -Location)
 ----
 
-And 
+Y
 
 ----
 http_link_to_id(+HandleID, +Parameters, -HREF)
@@ -1435,7 +1435,7 @@ Esta sección usa le archivo static_files_example.pl
 
 image:assets/swipl.png[]
 
-I hope by this point you're getting excited about SWI-Prolog web!.  
+Espero que para este punto you're getting excited about SWI-Prolog web!.  
 
 Maybe you're so excited you want to serve up the SWI-Prolog owl!
 
@@ -1463,7 +1463,7 @@ Congrats! The owl appears.
 
 CAUTION: +serve_files_from_directory/2+ is an older, less capable version. New code should use +http_reply_from_files/2+.
 
-One bit of security here. You don't want to serve something outside the served space, so need to prevent J Random Hacker from asking for +http://mysite.com/f/../../../etc/passwd+ or some such. So, it's wise to use +http_safe_file/2+ to sanitize file names. http_reply_file does the sanitizing for you.
+One bit of security here. You don't want to serve something outside the served space, so need to prevent J Random Hacker from asking for +http://mysite.com/f/../../../etc/passwd+ or some such. Así que, it's wise to use +http_safe_file/2+ to sanitize file names. http_reply_file does the sanitizing for you.
 
 With finding files in various places and whatnot, interestingly, the SWI-Prolog website's code to serve static assets is a good page long, much of it involved in displaying txt files by converting to html.
 
@@ -1488,7 +1488,7 @@ user:file_search_path(css, root('files/css')).
 
 because root's a URI path alias, not a file alias
 
-So, what happens if we ask for something that's not there?  Try http://127.0.0.1:8080/f/robot.png
+Así que, ¿Que sucede si pedimos por algo que no está allí?  Intente http://127.0.0.1:8080/f/robot.png
 
 Hmm... that's not so good. Nasty error message.
 
@@ -1667,7 +1667,7 @@ SWI-Prolog to the rescue. Using the resource manager, you describe 'resources', 
 
 How you include a resource of course depends on it's type, because it has to know how to write the tag to include it (eg for css it's to make a stylesheet link). So the default only understands javascript and css, but you can add your own types.
 
-So, our page requires some special bit of css in specialstyle.css, which depends on the corporate standard 'gradstyle.css'. So lets enforce including gradstyle.css any time we include specialstyle.css.
+Así que, our page requires some special bit of css in specialstyle.css, which depends on the corporate standard 'gradstyle.css'. So lets enforce including gradstyle.css any time we include specialstyle.css.
 
 ----
 :- html_resource(files('specialstyle.css'), [requires(files('gradstyle.css'))]).
@@ -2265,9 +2265,9 @@ Security Checklist
 Enlightened Self Interest
 -------------------------
 
-The only way to really become competent with an API is to use it. So, just as much as exercises or this page, I encourage you to make a project with the SWI tools. At the end of the course there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
+La única manera de volverse competente con una API es usarla. Así que, just as much as exercises or this page, I encourage you to make a project with the SWI tools. At the end of the course there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
 
-The only way to really become competent with an API is to use it. So, just as much as exercises or this page, I encourage you to make a project with the SWI tools.
+The only way to really become competent with an API is to use it. Así que, just as much as exercises or this page, I encourage you to make a project with the SWI tools.
 
 I imagine many of you will have a project - it will be why you're doing this course. But if you don't, or if your 'real' project is going to be a large one and you don't want to start it while a new user, or you just feel like doing a bit of good in return for free internet stuff, consider this:
 
