@@ -217,33 +217,33 @@ Rutas abstractas
 Vea el archivo abstract_path.pl
 =====
 
-Anyone who'se made a large web app will be worried by the way we've been encoding our HTTP paths. '/fluffybunny' is fine for a small website, but imagine maintaining a large system with all these absolute paths hard coded.
+Cualquiera que haya hecho una web app grande se preocupará por la manera en que hemos estado codificando nuestas rutas HTTP. '/fluffybunny' esta bien para un sitio web pequeño, pero imagine el mantenimiento de un gran sistema con todas esas rutas absolutas escritas en duro.
 
-WARNING: If you're used to Apache based systems you probably associate an URI path with a file path. e.g. este tutorial will be found en http://www.pathwayslms.com/swipltuts/html/index.html  . But it's served by sending the contents of a file, index.html, at /var/www/swipltuts/index.html on my server. The first is an URI path, the second a file path. They're different!
+ADVERTENCIA: Si está acostumbrado a los sistemas basados en Apache probablemente asocie una ruta URI con una ruta de archivo. por ejemplo,  este tutorial se encontraría en http://www.pathwayslms.com/swipltuts/html/index.html . Pero se sirve mediante el envío de los contenidos de un archivo, index.html, en /var/www/swipltuts/index.html en mi servidor. La primera es una ruta URI, La segunda una ruta de archivo. Son diferentes!
 
 La solución es lo que SWI-Prolog denomina 'rutas abstractas'. 
 
-The abstract path library is at http://www.swi-prolog.org/pldoc/doc/swi/library/http/http_path.pl if you want the gory details.
+La librería de rutas abstractas está en http://www.swi-prolog.org/pldoc/doc/swi/library/http/http_path.pl si desea los detalles sangrientos.
 
-Por ejemplo abstract_path.pl our handler declarations have changed. They now look like
+Por ejemplo abstract_path.pl nuestras declaraciones de manejador han cambiado. Ahora se ven algo asi
 
 ----
 :- http_handler(root(.), say_hi, []).
 
-% And, just for clarity, define a second handler
-% this one can by reached at http://127.0.0.1:8000/taco
+% Y, solamente por claridad, definimos un segundo manejador
+% que puede ser alcanzado en http://127.0.0.1:8000/taco
 :- http_handler(root(taco), say_taco, []).
 ----
 
-El primero es nuestro viejo amigo, the root handler, which serves http://127.0.0.1:8000/
+El primero es nuestro viejo amigo, el manejador raiz, el cual sirve http://127.0.0.1:8000/
 
-Paths are offsets from an abstract base. In our case, the only abstract base is the built in one, root, which is defined as /. 
+Las rutas son desplazamientos desde una base abstracta. En nuestro caso, la única base abstracta es la ya pre-creada, raíz, la cual se define como /. 
 
-So / is root(.), /taco is root(taco), and +root('foo/bar')+ is /foo/bar (note, not  +root(foo(bar))+).
+Así que / es root(.), /taco es root(taco), y +root('foo/bar')+ es /foo/bar (note que no es  +root(foo(bar))+).
 
-You're probably thinking, other than syntactic change, so what?
+Probablemente este pensando, en alguna cosa que no sea un cambio sintactico, y entonces qué?
 
-On to
+Ahondemos en
 
 Definición de nuevas rutas abstractas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -254,9 +254,9 @@ Definición de nuevas rutas abstractas
 Consulte el archivo new_abstract_path.pl
 =====
 
-El código de ejemplo new_abstract_path.pl agrega un hook predicate that defines a new abstract path. With it, we can now say files('zap.gif') to serve /f/zap.gif. If we move the files somewhere else we can just change one line.
+El código de ejemplo new_abstract_path.pl agrega un predicado hook que define una nueva ruta abstracta. Con ella, podemos ahora decir files('zap.gif') para servir /f/zap.gif. Si cambiamos los archivos a algún otro lugar podemos simplemente cambiar una línea.
 
-IMPORTANTE: The path to the root of *files* (second arg) is an absolute path specification, not root(.) 
+IMPORTANTE: La ruta a ala raíz de *files* (segundo argumento) es una especificación de ruta absoluta, y no root(.) 
 
 ----
 :- multifile http:location/3.
@@ -265,11 +265,11 @@ IMPORTANTE: The path to the root of *files* (second arg) is an absolute path spe
 http:location(files, '/f', []).
 ----
 
-Also notice that +location+ is arity 3. It takes a list of options, the only valid option being +priority(+:integer)+ which is used to disambiguate multiple handlers that handle the same URI. This is useful for defining a fallback handler for prefix of / to make a custom 'not found' page instead of 404ing, and for overriding portions of the URI space.
+También note que +location+ tiene aridad 3. It takes a list of options, the only valid option being +priority(+:integer)+ which is used to disambiguate multiple handlers that handle the same URI. This is useful for defining a fallback handler for prefix of / to make a custom 'not found' page instead of 404ing, and for overriding portions of the URI space.
 
 IMPORTANTE: I was tryig to make these 'abstract paths' be abstract files paths for a long time when learning this stuff. Beware, the two have nothing to do with each other. To make things worse, later on we'll encounter them used together.
 
-.sorry, not here exercise
+.lo siento, no habrá ejercicios aquí
 ****
 EJERCICIO:
 create a new abstract path /food/ and move taco to be under it
@@ -432,7 +432,7 @@ Consulte el archivo print_html_example.pl
 
 This isn't any better, but is an important step in understanding.
 
-WARNING: *Don't* do this in your own code.
+ADVERTENCIA: *No* haga esto en su propio código.
 
 +print_html+ is a behind the scenes predicate that converts a list of HTML chunks into a string containing HTML. Besides just concatenating, it inserts some rough formatting.
 
@@ -460,7 +460,7 @@ say_hi(_Request) :-
 Representación de HTML
 ~~~~~~~~~~~~~~~~~~~~~~
 
-SWI-Prolog tiene 3 representaciones para HTML. It can be a single atom, like in 2_1, or a list of tokens, (tokenized html), or a term form (termerized html) that we'll show next. Keeping track of which form you're working with can be one of the more confusing bits. So I'm introducing some terminology that Jan doesn't use in the SWI-Prolog documentation.
+SWI-Prolog tiene 3 representaciones para HTML. Puede ser un átomo único, como en 2_1, o una lista de tokens, (tokenized html), or a term form (termerized html) that we'll show next. Keeping track of which form you're working with can be one of the more confusing bits. So I'm introducing some terminology that Jan doesn't use in the SWI-Prolog documentation.
 
 *HTML atom*::
    an atom or string with HTML in it (the 2_1 representation)
@@ -507,7 +507,7 @@ That's what SWI-Prolog does, in a sorta sideways way. Here's an example:
         []),
 ----
 
-Notice that we're using +phrase/2+. +phrase+'s first argument is a library DCG, +html//1+, whose argument is a DSL (domain specific language) which defines the HTML it recognizes. Así que, phrase/2 will unify in the above when +TokenizedHtml+ is the tokenized HTML equivalent of the red stuff, the 'termerized HTML' defined by the first arg of +html//1+.
+Note que hemos estado usando +phrase/2+. +phrase+'s first argument is a library DCG, +html//1+, whose argument is a DSL (domain specific language) which defines the HTML it recognizes. Así que, phrase/2 will unify in the above when +TokenizedHtml+ is the tokenized HTML equivalent of the red stuff, the 'termerized HTML' defined by the first arg of +html//1+.
 
 It is this DSL which is our 'termerized HTML'.
 
@@ -818,7 +818,7 @@ Included lists are treated as literal, tokenized HTML to be included. Así que, 
     \['<i>in italic</i>', '<b>now we have bold</b>'],
 ----
 
-WARNING: If you do this you can't depend on +html//1+ always producing valid HTML. For this reason, seriously consider using quasiquotes instead. Quasiquotes largely deprecate this mechanism.
+ADVERTENCIA: If you do this you can't depend on +html//1+ always producing valid HTML. For this reason, seriously consider using quasiquotes instead. Quasiquotes largely deprecate this mechanism.
 
 CAUTION: The list brackets for including a literal are not optional! +\[term]+ and +\term+ are completely different. The first puts <i>term</i> in the html. The second treats term as an inclusion.
 
@@ -1581,7 +1581,7 @@ Well, we can serve files, now lets get them included in our web pages.
 Using mailman to incluir CSS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-WARNING: Don't actually do this in real code. See next section.
+ADVERTENCIA: Don't actually do this in real code. See next section.
 
 .Resource by Mailman example
 [NOTA]
