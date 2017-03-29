@@ -181,7 +181,7 @@ El último argumento es un conjunto de opciones. La mas interesante de estas es 
 
 Ahora estamos listos para la verdadera regla del manejador.
 
-When the rule is called the current input stream has been redirected to read the HTTPRequest, and current output has been redirected out the socket, so all we need do is print the response. 
+Cuando la regla es llamada el flujo de entrada actual ha sido redireccionado to read the HTTPRequest, and current output has been redirected out the socket, so all we need do is print the response. 
 
 We'll first write the required Content-type: header and then the body.
 
@@ -256,7 +256,7 @@ Consulte el archivo new_abstract_path.pl
 
 El código de ejemplo new_abstract_path.pl agrega un hook predicate that defines a new abstract path. With it, we can now say files('zap.gif') to serve /f/zap.gif. If we move the files somewhere else we can just change one line.
 
-IMPORTANT: The path to the root of *files* (second arg) is an absolute path specification, not root(.) 
+IMPORTANTE: The path to the root of *files* (second arg) is an absolute path specification, not root(.) 
 
 ----
 :- multifile http:location/3.
@@ -267,7 +267,7 @@ http:location(files, '/f', []).
 
 Also notice that +location+ is arity 3. It takes a list of options, the only valid option being +priority(+:integer)+ which is used to disambiguate multiple handlers that handle the same URI. This is useful for defining a fallback handler for prefix of / to make a custom 'not found' page instead of 404ing, and for overriding portions of the URI space.
 
-IMPORTANT: I was tryig to make these 'abstract paths' be abstract files paths for a long time when learning this stuff. Beware, the two have nothing to do with each other. To make things worse, later on we'll encounter them used together.
+IMPORTANTE: I was tryig to make these 'abstract paths' be abstract files paths for a long time when learning this stuff. Beware, the two have nothing to do with each other. To make things worse, later on we'll encounter them used together.
 
 .sorry, not here exercise
 ****
@@ -345,10 +345,10 @@ user:file_search_path(kiddy, videos(children/moviola)).
 
 If this system is being your enemy instead of your friend, you can debug with the Prolog flag verbose_file_search. Setting it to true makes the system print out the absolute paths each time it resolves a file name. You can also directly query expand_file_search_path and see all the matches of a spec.
 
-Generating HTML
+Generación de HTML
 ---------------
 
-Hasta ahora we've served texto plano. Lets serve HTML.
+Hasta ahora hemos servido texto plano. Sirvamos HTML.
 
 This is the longest chapter in el tutorial. I'm approaching it from the bottom up, so don't panic until we cover +html//1+ if the HTML generation looks ugly.
 
@@ -621,7 +621,7 @@ div([p('a para'), p('another para')])
 ----
 
 
-Entities
+Entidades
 ^^^^^^^^
 
 entity escaping happens
@@ -2298,6 +2298,26 @@ Si crea algo bello, compártame un link.
 Gracias,
 
 Annie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 
 
 
