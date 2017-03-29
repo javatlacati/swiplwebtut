@@ -104,7 +104,7 @@ Hola Web
 ~~~~~~~~~
 
 .Ejemplo Hola Web
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo helloweb.pl
 =====
@@ -146,9 +146,9 @@ Tenemos un único manejador que maneja la ruta raíz /
 :- http_handler(/, say_hi, []).
 ----
 
-Esta declaracion dice 'maneja la raíz del árbol mediante la consulta del objetivo say_hi.'
+Esta declaración dice 'maneja la raíz del árbol mediante la consulta del objetivo say_hi.'
 
-El primer argumento, /, es un atomo que significa 'la raíz del URI'. Así que si hubiéramos querido que nuestro servidor sirviera http://127.0.0.1:8000/twinkly/elf/weenblat.xls le hubiéramos dicho
+El primer argumento, /, es un átomo que significa 'la raíz del URI'. Así que si hubiéramos querido que nuestro servidor sirviera http://127.0.0.1:8000/twinkly/elf/weenblat.xls le hubiéramos dicho
 
 ----
 :- http_handler('/twinkly/elf/weenblat.xls', say_hi, []).
@@ -177,13 +177,13 @@ my_handler_code(WhatToSay, Request) :-
     and Request is a complex term that represents the httprequest (covered later)
 ----
 
-El último argumento es un conjunto de opciones. La mas interesante de estas es +prefix+, la cual permite a un único manejador manejar todo por debajo de la ruta también. Si necesita to override an existing handler, you may need the priority option. +priority(0)+ is default.
+El último argumento es un conjunto de opciones. La mas interesante de estas es +prefix+, la cual permite a un único manejador manejar todo por debajo de la ruta también. Si necesita sobrescibir un manejador existente, podría necesitar la opción de la prioridad. +priority(0)+ es el valor por defecto.
 
 Ahora estamos listos para la verdadera regla del manejador.
 
-Cuando la regla es llamada el flujo de entrada actual ha sido redireccionado to read the HTTPRequest, and current output has been redirected out the socket, so all we need do is print the response. 
+Cuando la regla es llamada el flujo de entrada actual ha sido redireccionado a la lectura del HTTPRequest, y la salida actual ha sido redireccionada hacia el socket, asi que todo lo que necesitamos hacer es imprimir la respuesta. 
 
-We'll first write the required Content-type: header and then the body.
+Primero escribiremos la cabecea requerida Content-type: y luego el cuerpo.
 
 ----
 say_hi(_Request) :-
@@ -191,28 +191,28 @@ say_hi(_Request) :-
         format('Hello World!~n').
 ----
 
-Don't worry, this is NOT the usual way of writing content. But that's chapter 2!
+No se preocupe, esta NO es la forma común de escribir contenido. Pero es el capítulo 2!
 
-.Different hello messages
+.Diferentes mensajes de saludo
 ****
 Ejercicio:
-Agregue handlers to helloweb.pl that print two different hello messages and share a single handler rule.
+Agregue manejadores a helloweb.pl que impriman dos mensajes de saludo distintos y compartan una única regla del manejador.
 
 Ejercicio (más difícil):
 Sirva una pequeña imágen png usando solamente llamadas format
 
 Ejercicio:
-Agregue al Servidor: header to the response, using +version/1+ to get the SWI-Prolog version of your SWI-Prolog install.
+Agregue al Servidor: encabezado a la respuesta, usando +version/1+ para obtener la versión de SWI-Prolog de su instalación de SWI-Prolog.
 El encabezado deberá verse algo como
 
 	Server: Apache/2.4.1 (Unix)
 ****
 
-Abstract Paths
+Rutas abstractas
 ~~~~~~~~~~~~~~
 
-.Abstract Path example
-[NOTE]
+.Ejemplo de ruta abstracta
+[NOTA]
 =====
 Vea el archivo abstract_path.pl
 =====
@@ -249,7 +249,7 @@ Definición de nuevas rutas abstractas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .Ejemplo de nuevas rutas abstractas
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo new_abstract_path.pl
 =====
@@ -404,7 +404,7 @@ Directly printing HTML
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .Direct Printing example
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo direct_print.pl
 =====
@@ -425,7 +425,7 @@ Usando print_html
 ~~~~~~~~~~~~~~~~
 
 .Using print_html example
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo print_html_example.pl
 =====
@@ -479,7 +479,7 @@ html//1 And Termerized HTML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .HTML DCG example
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo html_dcg_example.pl
 =====
@@ -515,7 +515,7 @@ Proving it's a real DSL
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 .Real DCG example
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo real_dcg.pl
 =====
@@ -543,7 +543,7 @@ reply_html_page
 ~~~~~~~~~~~~~~~
 
 .+reply_html_page+ example
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo reply_html_page_example.pl
 =====
@@ -566,7 +566,7 @@ Termerized HTML Syntax
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .+termerized_html+ example
-[NOTE]
+[NOTA]
 =====
 Consulte el archivo termerized_example.pl
 =====
@@ -765,7 +765,7 @@ Inclusion
 ---------
 
 .+termerized_html+ example
-[NOTE]
+[NOTA]
 =====
 This section also uses file termerized_example.pl
 =====
@@ -832,7 +832,7 @@ Quasiquotes
 ~~~~~~~~~~~
 
 .Quasiquotes example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo quasiquotes_example.pl
 =====
@@ -905,7 +905,7 @@ Inclusion And Modules
 ~~~~~~~~~~~~~~~~~~~~~
 
 .Inclusion and Modules Example
-[NOTE]
+[NOTA]
 =====
 This section also uses file termerized_example.pl and anothermodule.pl
 =====
@@ -1018,7 +1018,7 @@ Styling
 -------
 
 .Styling example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo styling_example.pl
 =====
@@ -1087,7 +1087,7 @@ Mailman
 ~~~~~~~
 
 .Mailman Example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo mailman_example.pl
 =====
@@ -1189,7 +1189,7 @@ By now you're probably itching to make something real. With parameters, we can s
 image:snake-handlers.jpg["Django dev. Bitten by an implicit join 30 seconds after this picture was taken. Has no problem handling parameters en SWI-Prolog.",width=192]
 
 .Parameter example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo parameter_example.pl
 =====
@@ -1208,7 +1208,7 @@ Handling POST requests
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .Parameter example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo post_example.pl
 =====
@@ -1260,7 +1260,7 @@ File Upload
 ~~~~~~~~~~~
 
 .File Upload example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo file_upload_example.pl
 =====
@@ -1286,7 +1286,7 @@ Basic Session Usage
 ~~~~~~~~~~~~~~~~~~~
 
 .Session example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo session_example.pl
 =====
@@ -1354,7 +1354,7 @@ Handler ID's
 ------------
 
 .Handler ID example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo handler_id_example.pl
 =====
@@ -1428,7 +1428,7 @@ Serving Files
 ~~~~~~~~~~~~~
 
 .Static Files example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo static_files_example.pl
 =====
@@ -1498,7 +1498,7 @@ Custom Error Pages
 ~~~~~~~~~~~~~~~~~~
 
 .Custom Error Page example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo custom_status_page.pl
 =====
@@ -1584,7 +1584,7 @@ Using mailman to incluir CSS
 WARNING: Don't actually do this in real code. See next section.
 
 .Resource by Mailman example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo resource_by_mailman.pl
 =====
@@ -1650,7 +1650,7 @@ Including Resources With +html_resource+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .Proper Resource Example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo resource_example.pl
 =====
@@ -1764,7 +1764,7 @@ Including Dynamic Javascript
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .Javascript Example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo javascript_example.pl
 =====
@@ -1897,7 +1897,7 @@ You might want to have different logins for different areas of the server - e.g.
 
 You can specify two different _realms_ to make the user have to log in to each one. 
 
-[NOTE]
+[NOTA]
 =====
 Pro-tip - The realm value appears on the dialog. If you choose a name like +'Enter username and password for admin access'+ you can somewhat improve the not great wording of the dialog box.
 =====
@@ -1908,7 +1908,7 @@ Basic Authentication
 ~~~~~~~~~~~~~~~~~~~~
 
 .Basic Authentication example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo basic_authenticate_example.pl
 =====
@@ -1933,7 +1933,7 @@ If the +authentication/1+ term exists in +Request+ and matches a line in the fil
 If the +authentication/1+ term is missing or invalid, we throw http_reply(authorise(basic, harbinger_realm)). SWI sends the 401 status and the browser brings up the dialog.
 If the user cancels, http_dispatch responds with a not authorized page.
 
-[NOTE]
+[NOTA]
 =====
 After you correctly answer it becomes hard to fiddle with the example. You can run the server on another port to convince the browser it's talking to a different server
 =====
@@ -2189,7 +2189,7 @@ Logging
 ~~~~~~~
 
 .Logging Example
-[NOTE]
+[NOTA]
 =====
 Esta sección usa le archivo logging_example.pl
 =====
@@ -2231,20 +2231,20 @@ Fortunately you remember it's in the settings, but of course have no idea what t
 ?- list_settings.
 ----
 
-Ah, it's http:logfiles
+Ah, es http:logfiles
 
 ****
 Ejercicio: change that puppy!
 ****
 
-Stopping The Server
+Detención del Servidor
 ^^^^^^^^^^^^^^^^^^^
 
 ----
 ?- http_stop_server(8000, []).
 ----
 
-The options are ignored.
+Las opciones son ignoradas.
 
 We're A Big Offical Site, We Have A NOC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2254,11 +2254,11 @@ Look cool, make yourself an admin page that shows http://www.swi-prolog.org/pldo
 Seguridad
 --------
 
-Security Checklist
+Checklist de Seguridad
 
 * are you vulnerable to prolog injection attacks? (easy to do with metaprogramming)
 * shell injection attacks? (sanitize args passed to shell). Prefer +process_create/3+ over +shell/1+.  Safe argument handling and you can handle the output from the process much easier.
-* SQL injection?
+* Inyecciones de SQL?
 *PLDoc server on? (see Ouch that hurt on 4000)
 * Don't include +library(http/http_errors.pl)+ in production to make hacker's jobs harder
 
@@ -2277,7 +2277,7 @@ I don't like big, monolithic libraries. It's frustrating to discover you have to
 
 I'm calling it *Weblog* a library that makes common web interaction patterns easier.
 
-If you're up for it, diríjase a https://github.com/Anniepoo/weblog"[the Weblog repo on github], tome una copia, y entonces diríjase a http://www.welie.com/patterns/index.php[Welie.com] y encupentrese un patrón que le agrade que no esté en su web-blog yet. O escríbame un email y le sugeriré algunos.
+Si está listo, diríjase a https://github.com/Anniepoo/weblog"[el erpositoio del Weblog en github], tome una copia, y entonces diríjase a http://www.welie.com/patterns/index.php[Welie.com] y encuentre un patrón que le agrade que no esté en su web-blog aún. O escríbame un email y le sugeriré algunos.
 
 Agradecimientos
 ------
@@ -2298,42 +2298,3 @@ Si crea algo bello, compártame un link.
 Gracias,
 
 Annie
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
