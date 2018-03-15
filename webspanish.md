@@ -265,30 +265,30 @@ IMPORTANTE: La ruta a ala raíz de *files* (segundo argumento) es una especifica
 http:location(files, '/f', []).
 ----
 
-También note que +location+ tiene aridad 3. It takes a list of options, the only valid option being +priority(+:integer)+ which is used to disambiguate multiple handlers that handle the same URI. This is useful for defining a fallback handler for prefix of / to make a custom 'not found' page instead of 404ing, and for overriding portions of the URI space.
+También note que +location+ tiene aridad 3. Recibe una listq de opciones, the only valid option being +priority(+:integer)+ which is used to disambiguate multiple handlers that handle the same URI. This is useful for defining a fallback handler for prefix of / to make a custom 'not found' page instead of 404ing, and for overriding portions of the URI space.
 
 IMPORTANTE: I was tryig to make these 'abstract paths' be abstract files paths for a long time when learning this stuff. Beware, the two have nothing to do with each other. To make things worse, later on we'll encounter them used together.
 
 .lo siento, no habrá ejercicios aquí
 ****
 EJERCICIO:
-create a new abstract path /food/ and move taco to be under it
+cree una nueva ruta abstracta /food/ y mueva taco paara que esté dentro de ella
 
 EJERCICIO:
 Abstract URI paths really only become useful as a website grows, and things need moved around.
-Extend the previous exercise to have /food/mexican/,  /food/french/, /food/japanese/ and serve an example food for each one.
+Extend the previous ejercicio to have /food/mexican/,  /food/french/, /food/japanese/ and serve una comida de ejemplo para cada uno.
 Arrange your code so the paths can be changed to /cuisine/mexican/,  /cuisine/french/, and /cuisine/japanese/ by changing a single http:location definition.
-Hint, use +http_absolute_uri/2+
+Consejo: use +http_absolute_uri/2+
 
 EJERCICIO:
-Move a handler, use the make command, then try to access the old location. It may work until you restart.
+Mueva un manejador, use el comando make, then try to access la ubicación anterior. It may work until you restart.
 Lesson learned - restart after you muck with location.
 ****
 
 Moving the whole shebang
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Your server will some day probably be proxied to by apache, so your root path may be changed. You can change all abstract paths at once by redefining the setting http:prefix.
+Su servidor will some day probablemente be proxied to by apache, so your root path may be changed. You can change all abstract paths at once by redefining the setting http:prefix.
 
 ****
 Ejercicio
@@ -296,7 +296,7 @@ Change the setting and confirm it works
 
 Pregunta
 
-Does it still serve at the old location?
+Does it still serve at la ubicación anterior?
 ****
 
 File Path Aliases
@@ -350,12 +350,12 @@ Generación de HTML
 
 Hasta ahora hemos servido texto plano. Sirvamos HTML.
 
-This is the longest chapter in el tutorial. I'm approaching it from the bottom up, so don't panic until we cover +html//1+ if the HTML generation looks ugly.
+This is the longest chapter in el tutorial. I'm approaching it from the bottom up, so don't panic until we cover +html//1+ if the generación de HTML looks ugly.
 
 Two Camps
 ~~~~~~~~~
 
-There are two camps when it comes to HTML generation.
+There are two camps when it comes to generación de HTML.
 
 image:twocamps-01.png["Well, for Prolog there are three camps - us unemployed, broke, homeless Prolog programmers have our own camp down by the railroad tracks"]
 
@@ -366,29 +366,29 @@ The dynamic camp wants to dynamically generate web pages, and will live with an 
 Opciones
 ^^^^^^^
 
-En SWI-Prolog you have several options:
+En SWI-Prolog you have several opciones:
 
 simple-template::
    Simple-template by Raivo Laanemets (installable as a pack, or at https://github.com/rla/simple-template ) enforces the strictest separation of logic and formatting. Simple-template doesn't allow prolog code in the template.
 Prolog Web Pages::
    PWP is the most asp/jsp like, with the advantage that it's well formed XML. http://www.cs.otago.ac.nz/staffpriv/ok/pwp.pl
 +html//1+::
-   Prolog syntax DCG based HTML generation. Part of the SWI-Prolog distribution.
+   Prolog syntax DCG based generación de HTML. Part of the SWI-Prolog distribution.
 
-Este capítulo es acerca de la construcción en SWI-Prolog HTML generation support using +html//1+, which is firmly in the 'dynamic' camp. PWP and Raivo's simple-template systems both have excellent documentation. I see no point in repeating them here.
+Este capítulo es acerca de la construcción en SWI-Prolog generación de HTML support using +html//1+, which is firmly in the 'dynamic' camp. PWP and Raivo's simple-template systems both have excellent documentation. I see no point in repeating them here.
 
 If you pitch your tent in the template camp, SWI-Prolog provides support for it http://www.swi-prolog.org/pldoc/doc_for?object=section%283,%273.21%27,swi%28%27/doc/packages/http.html%27%29%29[integrating PWP] .
 
-But both sides of the debate have merit. Templates are great for working with a web designer, and of course the toolchain for normal HTML is far better developed. Separating function and appearance is a good thing to do, especially if you'll be using the code for more than one website.
+Sin embargo both sides of the debate have merit. Templates are great for working with a web designer, and of course the toolchain for normal HTML is far better developed. Separating function and appearance is a good thing to do, especially if you'll be using the code for more than one website.
 
-On the other hand, modern web applications seem to make almost everything on the page dynamic. On the SWI-Prolog.org website, for example, even Owlie the owl icon is dynamic (he changes on holidays). If you're generating tiny bits of HTML automatically, templates can become a nightmare.
+On the other hand, modern web applications seem to make almost everything on the page dynamic. On the SWI-Prolog.org website, for example, even Owlie the owl icon is dynamic (he changes on holidays). If you're generating tiny bits of HTML automáticamente, templates can become a pesadilla.
 
 TIP: As an aside, if you like the whole WordPress style 'they write most of the application for me' framework, check out Raivo Laanemets' http://blog-core.net/[Blog-Core].
 
 Combining Options
 ^^^^^^^^^^^^^^^^^
 
-Fortunately, this is a false dicotomy. It's easy to integrate the systems.
+Fortunately, this is a false dicotomy. It's easy to integrate los sistemas.
 
 That said, you can indeed output a block of 'normal' HTML with the built-in support. Some strategies for doing so (skipping ahead a bit):
 
@@ -419,7 +419,7 @@ say_hi(_Request) :-
 
 Ouch!
 
-Clearly we're not doing this for long. But it's nice to know you can just print if the handy helper stuff is fighting you.
+Claramente no lo haremos por mucho tiempo. Sin embargo it's nice to know you can just print if the handy helper stuff is fighting you.
 
 Usando print_html
 ~~~~~~~~~~~~~~~~
@@ -434,7 +434,7 @@ This isn't any better, but is an important step in understanding.
 
 ADVERTENCIA: *No* haga esto en su propio código.
 
-+print_html+ is a behind the scenes predicate that converts a list of HTML chunks into a string containing HTML. Besides just concatenating, it inserts some rough formatting.
++print_html+ is a behind the scenes predicate that converts una lista de fragmentos de HTML into a string containing HTML. Besides just concatenating, it inserts some rough formatting.
 
 ----
 say_hi(_Request) :-
@@ -488,13 +488,13 @@ The primary tool for generating HTML in real applications is +html//1+, a DCG th
 
 image:comfy.png["He's just read my DCG tutorial, that's why he looks like that", width=244,link="/swipltuts/clpfd/clpfd.html"]
 
-Finalmente, we see something that looks like reasonable HTML generation.
+Finalmente, we see something that looks like reasonable generación de HTML.
 
-Web pages are nested structures of boxes within boxes and areas on a page. While they have a strong structural similarity to their HTML representation, they are not identical. A search box is not, conceptually, just a text field, but is a thing unto itself.
+Web pages are nested structures of cajas within cajas and areas en una página. While they have a strong structural similarity to their HTML representation, they are not identical. A search box is not, conceptually, just a text field, but is a thing unto itself.
 
-Representing the _page's_ structure and converting it to a list of HTML chunks is list generation, and there's a natural tool in Prolog for list generation - the DCG.
+Representing the _page's_ structure and converting it to una lista de fragmentos de HTML is list generation, and there's a natural tool in Prolog for list generation - the DCG.
 
-That's what SWI-Prolog does, in a sorta sideways way. Here's an example:
+That's what SWI-Prolog does, in a sorta sideways way. He aquí un ejemplo:
 
 ----
     phrase(
@@ -507,7 +507,7 @@ That's what SWI-Prolog does, in a sorta sideways way. Here's an example:
         []),
 ----
 
-Note que hemos estado usando +phrase/2+. +phrase+'s first argument is a library DCG, +html//1+, whose argument is a DSL (domain specific language) which defines the HTML it recognizes. Así que, phrase/2 will unify in the above when +TokenizedHtml+ is the tokenized HTML equivalent of the red stuff, the 'termerized HTML' defined by the first arg of +html//1+.
+Note que hemos estado usando +phrase/2+. +phrase+'s primer argumento is a library DCG, +html//1+, whose argument is a DSL (domain specific language) which defines the HTML it recognizes. Así que, phrase/2 will unify in the above when +TokenizedHtml+ is the tokenized HTML equivalent of the red stuff, the 'termerized HTML' defined by the first arg of +html//1+.
 
 It is this DSL which is our 'termerized HTML'.
 
@@ -520,7 +520,7 @@ Proving it's a real DSL
 Consulte el archivo real_dcg.pl
 =====
 
-Using a DCG just to call +html//1+ and passing it the termerized HTML probably seems, at this point, pretty Rube Goldberg-ish. When we get to inclusions you'll see why it's done.
+Using a DCG just to call +html//1+ and passing it the termerized HTML probablemente seems, at this point, pretty Rube Goldberg-ish. When we get to inclusions you'll see why it's done.
 
 Lets prove that it's a real DCG by abstracting out the generation into it's own nonterminal (See the file).
 
@@ -575,7 +575,7 @@ Now we're ready to look at the termerized HTML syntax. You'll definitely want to
 
 The SWI-Prolog docs for this are in http://www.swi-prolog.org/pldoc/doc_for?object=section%283,%273.17%27,swi%28%27/doc/packages/http.html%27%29%29[this location] (which I recommend bookmarking, as finding it is always exciting).
 
-Termerized HTML uses an arity 1 or 2 term for each HTML tag.
+Termerized HTML uses an arity 1 or 2 term para cada HTML tag.
 
 The arg of arity 1 terms is the innerHTML. The args of arity 2 terms are attributes and innerHTML. Either one can be a list to allow multiple items.
 
@@ -650,7 +650,7 @@ String Help
 There's much help to perform string operations. You can get +format/2+ style formatting using -
 
 ----
-p('these ~d things, faith, hope, and love. But the greatest of them is ~w'-[3,love])
+p('these ~d things, faith, hope, and love. Sin embargo the greatest of them is ~w'-[3,love])
 ----
 
 Concatenation usually isn't needed, but is +
@@ -734,7 +734,7 @@ se vuelve
 class="emphasize left question"
 ----
 
-This bit about namespaces is slightly esoteric, feel free to skip down to the next exercises if not of interest.
+This bit about namespaces is slightly esoteric, feel free to skip down to the next ejercicios if not of interest.
 
 Attributes in other namespaces look like this. This is fairly rare in html, it shows up when mixing in XML or RDF related stuff. Here we have elgin:advisory. Note that, surprisingly, HTML5 doesn't "know" about namespaces, and adding them to the html tag is invalid. Colon is a normal character in attributes in HTML5.
 
@@ -751,9 +751,9 @@ If you're in XHTML dialect you can add namespaces with +xhtml_ns//2+. By default
     html_set_options([dialect(xhtml)])
 ----
 
-This section's certainly long, but it's the core of el tutorial. Still, lets break and do a few exercises to absorb what we've learned.
+Esta sección's certainly long, but it's the core of el tutorial. Still, lets break and do a few ejercicios to absorb what we've learned.
 
-.html exercises
+.html ejercicios
 ****
 Ejercicio: 
 Convert a simple web page from a project you've made into termerized HTML.
@@ -767,10 +767,10 @@ Inclusion
 .+termerized_html+ example
 [NOTA]
 =====
-This section also uses file termerized_example.pl
+Esta sección also uses file termerized_example.pl
 =====
 
-HTML is a markup language. It's tags are not the semantic units of a web page as we think about it. We want to talk about the login box, not a div with a text box blah blah. Inclusion is SWI-Prolog's mechanism for encapsulating HTML generation code. This means you can create structured, reusable components of web pages, and pays off many times the slight awkwardness of 'funny looking html'.
+HTML is a markup language. It's tags are not the semantic units of a web page as we think about it. We want to talk about the login box, not a div with a text box blah blah. Inclusion is SWI-Prolog's mechanism for encapsulating generación de HTML code. This means you can create structured, reusable components of web pages, and pays off many times the slight awkwardness of 'funny looking html'.
 
 Inclusion is signaled by +\+. If the argument of \ is a term, it will be treated as a DCG, and expanded to tokenized HTML. 
 
@@ -837,7 +837,7 @@ Quasiquotes
 Esta sección usa le archivo quasiquotes_example.pl
 =====
 
-At this point those of you in the template camp are probably running in circles, screaming and shouting, thinking that the only escape from Jan's strange formatting for html is to abandon ship and use simple-template, or ignore the warnings liberally plastered about the +\[ ]+ format.
+At this point those of you in the template camp are probablemente running in circles, screaming and shouting, thinking that the only escape from Jan's strange formatting for html is to abandon ship and use simple-template, or ignore the warnings liberally plastered about the +\[ ]+ format.
 
 Have no fear, quasiquotes are here.
 
@@ -867,7 +867,7 @@ my_headline(X) -->
 
 Notice we've passed it to +html//1+. That's usually what you'll do with it.
 
-But what's it compile into?
+Sin embargo what's it compile into?
 The SWI-Prolog docs say 
 
 .+html/4+ Quasiquote output format
@@ -887,9 +887,9 @@ Y = [element(h1, [], [hello])].
 Y = [element(h1, [], [X])].
 -----
 
-The funny list with element/3 term in it is the format SWI-Prolog represents SGML in. But usually you won't care about that.
+The funny list with element/3 term in it is the format SWI-Prolog represents SGML in. Sin embargo usually you won't care about that.
 
-If you want to insert some normal HTML boilerplate in the midst of a mass of termerized html, do it like this:
+Si desea to insert some normal HTML boilerplate in the midst of a mass of termerized html, do it like this:
 
 ----
 my_inclusion(X) -->
@@ -907,14 +907,14 @@ Inclusion And Modules
 .Inclusion and Modules Example
 [NOTA]
 =====
-This section also uses file termerized_example.pl and anothermodule.pl
+Esta sección also uses file termerized_example.pl and anothermodule.pl
 =====
 
 image:comfymodule-01.png["His coffee's gone cold",width=244]
 
 Now that you can make nifty bits of pages, you start accumulating them and soon you have enough you need to organize into modules. You use the usual use_module system and life is good for a while.
 
-Then you get this bright idea. You could make your site look really awesome by using Javascript and HTML5 to draw a 'hand drawn' border around the various sections. But now we want to add the 'hand drawn' look without having a mess everywhere. We could do:
+Then you get this bright idea. You could make your site look really awesome by using Javascript and HTML5 to draw a 'hand drawn' border around the various sections. Sin embargo now we want to add the 'hand drawn' look without having a mess everywhere. We could do:
 
 ----
 	start_hand_drawn_box, ... contents, \end_hand_drawn_box
@@ -969,7 +969,7 @@ Now we can make an inclusion that takes html:
             ... more totally unreadable javascript ... ]).
 ----
 
-+hand_drawn_box+ takes termerized HTML as it's first argument. Remember that it's a DCG, so there are two additional arguments for the difference list, hance the two ? arguments.
++hand_drawn_box+ takes termerized HTML as it's primer argumento. Remember that it's a DCG, so there are two additional arguments for the difference list, hance the two ? arguments.
 
 Besides fixing the module issue, the pceEmacs editor will now properly syntax color the argument.
 
@@ -988,7 +988,7 @@ I would say, module issues are, along with inclusion, the great pain points in u
 Start A Project
 ^^^^^^^^^^^^^^^
 
-At this point our exercises start building on each other. You may want to copy one of the examples to create a starting point.
+At this point our ejercicios start building on each other. You may want to copy one of the examples to create a starting point.
 
 ****
 Ejercicio: Create a simple web page with a form that does a GET to gather a message. You needn't build anything to handle the form.
@@ -1025,7 +1025,7 @@ Esta sección usa le archivo styling_example.pl
 
 Until now our web pages have looked pretty last century. To boot, we get no help adding the common elements across all pages. Lets spiff things up.
 
-Corporate wants every page to say 'The Simple Web Page Site' across the top of every page. It's a common requirement. Why should we repeat that for each page?
+Corporate wants every page to say 'The Simple Web Page Site' across the top of every page. It's a common requirement. Why should we repeat that para cada page?
 
 +reply_html_page+ has an arity 2 and an arity 3 form. The arity 3 version saves us
 
@@ -1063,7 +1063,7 @@ Por supuesto you can have more than one style. At my employer we use one style f
 
 ****
 Ejercicio:
-Add a header and footer to your web page from the +html//1+ exercises using body styling. 
+Add a header and footer to your web page from the +html//1+ ejercicios using body styling. 
 
 Ejercicio:
 Make a pair of web pages that have some main content and some 'ads' (feel free to just make a div and some text for the ads) served from /free  and the same content without ads served from /paid. Minimize repeated code.
@@ -1158,7 +1158,7 @@ nav_bar -->
 
 A common reason to do this is a page element that in turn requires something in the head, say a widget that depends on a dynamic css or js snippet or dynamic keyword generation. In fact, the mailbox name _head_ is always defined.
 
-Another common reason is an element (say a list of blog posts) whose contents are accumulated during page generation, and a set of links to them near the top of the page.
+Another common reason is an element (say una lista de blog posts) whose contents are accumulated during page generation, and a set of links to them near the top of the page.
 
 Be aware, it's possible to baffle it when mailing inclusions deep in other structures. You may need to use the +\(module:name(args))+ form for any inclusions you mail. (if all you're mailing is the inclusion, the system handles that).
 
@@ -1181,7 +1181,7 @@ Use the debugger to look at what comes into your overload of user:body and user:
 Handling Parameters
 -------------------
 
-By now you're probably itching to make something real. With parameters, we can start getting dynamic.
+By now you're probablemente itching to make something real. With parameters, we can start getting dynamic.
 
 +http_parameters+
 ~~~~~~~~~~~~~~~~~
@@ -1194,7 +1194,7 @@ image:snake-handlers.jpg["Django dev. Bitten by an implicit join 30 seconds afte
 Esta sección usa le archivo parameter_example.pl
 =====
 
-This section is about the pred http_parameters, documented at http://www.swi-prolog.org/pldoc/doc_for?object=section%283,%273.9%27,swi%28%27/doc/packages/http.html%27%29%29[this page]. 
+Esta sección is about the pred http_parameters, documented at http://www.swi-prolog.org/pldoc/doc_for?object=section%283,%273.9%27,swi%28%27/doc/packages/http.html%27%29%29[this page]. 
 
 The documentation is actually quite good, so I'm going to refer you there for parameter handling, but tell you about some gotchas.
 
@@ -1276,7 +1276,7 @@ Sessions
 
 An explanation, if you don't know what sessions are.
 
-The basic design of the web is stateless. Every transaction is independent of every other transaction. But we want to have an ongoign conversation with the user - when they put something in their shopping cart, we want to remember it.
+The basic design of the web is stateless. Every transaction is independent of every other transaction. Sin embargo we want to have an ongoign conversation with the user - when they put something in their shopping cart, we want to remember it.
 
 Enter sessions. We give the browser a unique number (usually as a 'cookie') that they give back to us. We then look up the data associated with that session number, and we have the user's data. Por supuesto eventually memory would fill with sessions, so we delete old sessions. If we don't have the data for a session ID, we just start a new one. You can see this by going to a site, putting something in a shopping cart, then not coming back to the site for months.
 
@@ -1291,7 +1291,7 @@ Basic Session Usage
 Esta sección usa le archivo session_example.pl
 =====
 
-At this point you're probably fantasizing about all the stuff you can make en SWI-Prolog web, but you know you're going to have to track sessions.
+At this point you're probablemente fantasizing about all the stuff you can make en SWI-Prolog web, but you know you're going to have to track sessions.
 
 Implementing session control is insanely simple. More fun than http://xkcd.com/353/[Python]
 
@@ -1336,12 +1336,12 @@ nick_list([
 ****
 Ejercicio: Ejecute el servidor. Reload the page several times. 
 
-Completely exit SWI-Prolog and rerun the server. Confirm you can get a different name this way.
+Completely exit SWI-Prolog and rerun el servidor. Confirm you can get a different name this way.
 
-Ejercicio: Add another handler that lets you reset your nick without restarting the server. Use http_session_retractall to get rid of the old nick. Hint - you can just recurse into the handler to get the new one.
+Ejercicio: Add another handler that lets you reset your nick without restarting el servidor. Use http_session_retractall to get rid of the old nick. Hint - you can just recurse into the handler to get the new one.
 ****
 
-We won't cover it in this course, but you can control who gets a session. If you set the +http_set_session_options+ create option to noauto you can  manually create sessions. If you want you can set the session lifetime. This can dramatically affect server memory if have a typical distribution of visitors, with many arriving at a single page and a few staying.
+We won't cover it en este curso, but you can control who gets a session. If you set the +http_set_session_options+ create option to noauto you can  manually create sessions. Si desea you can set the session lifetime. This can dramatically affect server memory if have a typical distribution of visitors, with many arriving at a single page and a few staying.
 
 You can also restrict which parts of your site cause a session to be created. This can be very useful for, say, an informational site that doesn't need sessions for most visitors, but includes a small online store selling cafe press mugs and so on and needs sessions for the shopping cart.
 
@@ -1356,10 +1356,10 @@ Handler ID's
 .Handler ID example
 [NOTA]
 =====
-Esta sección usa le archivo handler_id_example.pl
+Esta sección usa el archivo handler_id_example.pl
 =====
 
-The other half of abstract paths is ways to refer to handlers that don't break even if we move their location around. Handler ID's are that solution.
+The other half of abstract paths is ways to refer to handlers that don't break incluso si we move their location around. Handler ID's are that solution.
 
 I think of this joke when I think of handler id's en SWI-Prolog.
 
@@ -1375,27 +1375,27 @@ root('f/bar')
 the f_bar_handler predicate
 ----
 
-But ultimately none of these names *this* handler. All but the first name a *path*, concretely or abstractly. And that's something that can move around.
+Sin embargo ultimately none of these names *this* handler. All but the first name a *path*, concretely or abstractly. And that's something that can move around.
 
-The last names the handling predicate. Often that's unique to a handler, but not always, as we've seen. So you can provide an option +id(login_page)+ to the http_handler option list to name the handler itself. Once it has a name you can refer to it in various places, the most useful of which is for making links that don't break when you move things around:
+The last names the handling predicate. Often that's unique to a handler, pero no siempre, as we've seen. So you can provide an option +id(login_page)+ to the http_handler option list to name the handler itself. Once it has a name you can refer to it in various places, the most useful of which is for making links that don't break when you move things around:
 
 ----
 a(href=location_by_id(login_page), 'Log in')
 ----
 
-Now, that's great if whoever wrote the login_page handler gave it an ID. But if not, can you do the next best thing, and refer to the rule that handles it? Yup.
+Now, that's great if whoever wrote the login_page handler gave it an ID. Sin embargo if not, can you do the next best thing, and refer to the rule that handles it? Yup.
 
 ----
 a(href=location_by_id(login_page_handler), 'Log in')
 ----
 
-Por supuesto it's probably in some other module. We can handle that (it's not obvious we can, we're in termerized HTML, not Prolog, remember)
+Por supuesto it's probablemente in some other module. We can handle that (it's not obvious we can, we're in termerized HTML, not Prolog, remember)
 
 ----
 a(href=location_by_id(login_module:login_page_handler), 'Log in')
 ----
 
-If it's got args, you'll need to omit those (so it's less useful for our exercise)
+If it's got args, you'll need to omit those (so it's less useful for our ejercicio)
 
 And, a couple tools that occasionally are handy:
 
@@ -1411,7 +1411,7 @@ Y
 http_link_to_id(+HandleID, +Parameters, -HREF)
 ----
 
-And now for an exercise:
+And now for an ejercicio:
 
 ****
 Ejercicio: Modify new_abstract_path.p and use the two API's above from the top level to establish the locations of some of the handlers.
@@ -1441,7 +1441,7 @@ Maybe you're so excited you want to serve up the SWI-Prolog owl!
 
 No?
 
-Well, you probably do have assets like this you want to serve up.
+Well, you probablemente do have assets like this you want to serve up.
 
 Fortunately, there's a canned handler that will serve files in a directory tree.
 
@@ -1457,7 +1457,7 @@ Second, we're using a path alias to describe the file's location. In this case w
 
 Lastly, note the +prefix+. So everything under the assets directory will be served. Wow, just like we're Apache or something! Maybe not. Can't make a living maintaining SWI-Prolog config files.
 
-Run the server and browse http://127.0.0.1:8080/f/swipl.png
+Run el servidor and browse http://127.0.0.1:8080/f/swipl.png
 
 Congrats! The owl appears.
 
@@ -1469,11 +1469,11 @@ With finding files in various places and whatnot, interestingly, the SWI-Prolog 
 
 Hey, what happens if you ask for the directory? There's a kumquat in there!
 
-Gives a directory listing just like a real web server, even if it *is* in a language that's only used for AI (wink wink). 
+Gives a directory listing just like a real web server, incluso si it *is* in a language that's only used for AI (wink wink). 
 
 And, for the record, you can make an index.html page just like normal. Browse http://127.0.0.1:8080/f/
 
-The SWI-Prolog libraries define a few static file handlers - +css, js, and icon+ are all defined already. You probably want to have those same handlers. Easy! Just add your directory to the file alias the library handler is already handling. If your css files are in +./files/css+ under your project directory, you can just do:
+The SWI-Prolog libraries define a few static file handlers - +css, js, and icon+ are all defined already. You probablemente want to have those same handlers. Easy! Just add your directory to the file alias the library handler is already handling. If your css files are in +./files/css+ under your project directory, you can just do:
 
 ----
 user:file_search_path(css, 'files/css').
@@ -1505,7 +1505,7 @@ Esta sección usa le archivo custom_status_page.pl
 
 When we ask for a nonexistant page, or when the handler fails or throws an exception, the framework displays a default status page.
 
-We can customize the status page by defining a hook predicate.
+Podemos personalizar la página de status by defining a hook predicate.
 
 ----
 	:- use_module(library(http/http_header)).
@@ -1523,7 +1523,7 @@ We can customize the status page by defining a hook predicate.
 			   HTML).
 ----
 
-The first argument to +http:status_page/3+ will be one of these statuses, which map to the text version of the various HTTP statuses.
+The primer argumento to +http:status_page/3+ will be one of these statuses, which map to the text version of the various HTTP statuses.
 
 For example, to override 500 status errors, unify the first term with +server_error(_)+.
 
@@ -1552,9 +1552,9 @@ For example, to override 500 status errors, unify the first term with +server_er
 	%	   - unavailable(WhyHtml)
 ----
 
-So now we have nice professional looking error pages.
+So now we have nice professional looking páginas de error.
 
-If you need to make the server generate one of the other statuses, call +http_status_reply/4+ to generate the page. Notice that you need to do this at the handler level. I suspect there's a method of doing it by throwing an exception, but I don't know what it is.
+If you need to make el servidor generate one of the other statuses, call +http_status_reply/4+ to generate the page. Notice that you need to do this at the handler level. I suspect there's a method of doing it by throwing an exception, but I don't know what it is.
 
 
 ****
@@ -1563,13 +1563,13 @@ Ejercicio: How would you make a 'site offline' function that the NOC staff could
 Ejercicio: Modify static_files_example.pl to serve javascript, css, and image files from 3 separate directories.
 
 Ejercicio: extend the custom_status_page.pl file to have a second link to a page that exists, but does a divide by zero in it's handler.
-Give your server a nice 500 error page.
+Give su servidor a nice 500 error page.
 ****
 
 Redirección
 ~~~~~~~~
 
-You're probably wondering what happened to redirects. If you're used to the old 'not signedin, redirect' paradigm, you need it. But, actually, instead of a redirect, consider calling the handler of the page you're redirecting to. 
+You're probablemente wondering what happened to redirects. If you're used to the old 'not signedin, redirect' paradigm, you need it. But, actually, instead of a redirect, consider calling the handler of the page you're redirecting to. 
 
 If you need a real redirect, use http://www.swi-prolog.org/pldoc/doc_for?object=http_redirect/3[+http_redirect/3+]
 
@@ -1581,12 +1581,12 @@ Well, we can serve files, now lets get them included in our web pages.
 Using mailman to incluir CSS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ADVERTENCIA: Don't actually do this in real code. See next section.
+ADVERTENCIA: Don't actually do this in real code. Vea la sección siguiente.
 
 .Resource by Mailman example
 [NOTA]
 =====
-Esta sección usa le archivo resource_by_mailman.pl
+Esta sección usa e archivo resource_by_mailman.pl
 =====
 
 One way to include resources is to use mailman to mail them into the head.
@@ -1614,7 +1614,7 @@ css(URL) -->
                        ])).
 ----
 
-There is an implied html_receive(head) in reply_html_page. This is very useful for sending random things to the head.
+Existe an implied html_receive(head) in reply_html_page. This is very useful for sending random things to the head.
 
 A common situation is dealing with ugly hacks to get around IE borkedness. Here's a mess I needed for a Leaflet map:
 
@@ -1659,7 +1659,7 @@ This material is described in the http://www.swi-prolog.org/pldoc/doc_for?object
 
 Looking at the previous method of including resources, a few defects of the method come to mind
 
-* There is nothing preventing the resource from being included twice
+* No hay nada preventing the resource from being included twice
 * It's a bit of unneeded ceremony
 * If a resource needs another resource you have to remember that yourself
 
@@ -1675,14 +1675,14 @@ Así que, our page requires some special bit of css in specialstyle.css, which d
 
 The first arg is a standard path, as an URI or abstract path. The second is a +properties+ list. The most useful is requires, which takes another resource path, one of a resource name, an abstract path or an URI. If there is more than one required resource, pass them as a list. Use the +ordered(true)+ option to enforce their being loaded in the list order.
 
-There are a few other very useful options. 
+There are a few other very useful opciones. 
 
 * +virtual(true)+ lets you set up, for example, bootstrap as a single resource, bootstrap, and get the js, the css, and anything else it needs, or decouple bootstrap from a version number
 * +ordered(true)+ makes sure the resources get loaded in the right order.
 * +aggregate/1+ is supposed to be for situations where you might need only a small part of a large file. If you have a big css file with sections A, B, C, and D, and four smaller files A,B,C, and D, and you load the big one in one place, you don't need the smaller ones. The 'a number of' algorithm is pretty dumb. It's 'greater than 4'.
 * +mime_type/1+ lets you specify the type of a resource, so if your javascript file is named bunny.poo for some strange reason, you can still load it as javascript. I believe the documentation is wrong, it's + mode.
 
-On larger projects I usuallay set up a virtual resource for each item, that in turn requires the real file. This way, if I change versions of jQuery I only have to change it in one place. 
+On larger projects I usuallay set up a virtual resource para cada item, that in turn requires the real file. This way, if I change versions of jQuery I only have to change it in one place. 
 
 The other bit of magic we need is to declare that we need the resource. Since the declaration's a DCG we can just stick it in the termerized HTML.
 
@@ -1766,10 +1766,10 @@ Including Dynamic Javascript
 .Javascript Example
 [NOTA]
 =====
-Esta sección usa le archivo javascript_example.pl
+Esta sección usa el archivo javascript_example.pl
 =====
 
-There is an older predicate based system for creating dynamic Javascript. It's deprecated in favor of quasiquotes.
+Existe an older predicate based system for creating dynamic Javascript. It's deprecated in favor of quasiquotes.
 
 Quasiquotes let you insert another language into the midst of Prolog code. Handling Javascript is an obvious application.
 
@@ -1782,7 +1782,7 @@ Y = 7,
 X = \['$(function(', \js_expression(7), '){ console.log(', \js_expression(7), '); }); '].
 ----
 
-You probably want that surrounded with a +<script>+ tag.
+You probablemente want that surrounded with a +<script>+ tag.
 
 ----
 \js_script({|javascript(X)|| console.log(X); |})
@@ -1833,14 +1833,14 @@ Communicating With The Server
 AJAX
 ~~~~
 
-As we've just seen, we can accept and return JSON, so we can implement AJAX, but there are other ways to communicate with the server.
+As we've just seen, we can accept and return JSON, so we can implement AJAX, but there are other ways to communicate with el servidor.
 
 ****
 Ejercicio:
 Build a small web page based on http://www.highcharts.com/stock/demo/basic-line[Highstock's line chart demo] that displays a real time graph of
 the number of bytes used in the heap, using http://www.swi-prolog.org/pldoc/man?predicate=statistics/2[statistics/2] and AJAX.
 
-Note - yes, this exercise involves repeats of previous material. It's skill building.
+Note - yes, this ejercicio involves repeats of previous material. It's skill building.
 ****
 
 Pengines
@@ -1850,7 +1850,7 @@ Pengines is a rather nifty distributed computing system by Torbjorn Lager that s
 
 Its so nifty I'm going to do a 'real world' tutorial just on Pengines, so I'll just mention it here.
 
-Pengines allows the client to run queries in a sandboxed environment on the server. This gives the client the full expressive power of Prolog as a query language.
+Pengines allows the client to ejecutar consultas in a sandboxed environment en el servidor. This gives the client the full expressive power of Prolog as a query language.
 
 It's also a heck of a lot easier than any other way of making AJAX like behavior.
 
@@ -1859,7 +1859,7 @@ For now, you can check out my talk about pengines at https://www.youtube.com/wat
 WebSockets
 ~~~~~~~~~~
 
-SWI-Prolog has built-in support for WebSockets. If you want to do a collaborative application check out http://www.swi-prolog.org/pldoc/doc_for?object=section%282,%275%27,swi%28%27/doc/packages/http.html%27%29%29[WebSocket Support]
+SWI-Prolog tiene soporte incluido para WebSockets. Si desea to do a collaborative application check out http://www.swi-prolog.org/pldoc/doc_for?object=section%282,%275%27,swi%28%27/doc/packages/http.html%27%29%29[WebSocket Support]
 
 CORS
 ~~~~
@@ -1893,7 +1893,7 @@ WWW-Authenticate: Basic realm="harbinger_realm"
 
 So what's this realm thing?
 
-You might want to have different logins for different areas of the server - e.g. one for general users, one for administrators.
+You might want to have different logins for different areas  del servidor - e.g. one for general users, one for administrators.
 
 You can specify two different _realms_ to make the user have to log in to each one. 
 
@@ -1917,9 +1917,9 @@ Basic authentication is easy to implement. The http://www.swi-prolog.org/pldoc/m
 
 Our sample +basic_authenticate_example.pl+ looks for a valid authentication based on a file called passwd. It also has a couple predicates to create a new passwd file and add names to it.  
 
-To use, query  +start_pw_file.+ , which makes the username *adminuser* with password *adminpw*. To add users, query add_uname_pw.  Start the server and it will accept the user (the example doesn't gracefully handle a missing passwd file).
+To use, query  +start_pw_file.+ , which makes the username *adminuser* with password *adminpw*. To add users, query add_uname_pw.  Start el servidor and it will accept the user (the example doesn't gracefully handle a missing passwd file).
 
-Now that you have a password file, run the server by querying +server(9000)+ and browsing http://localhost:9000/ .
+Now that you have a password file, run el servidor by querying +server(9000)+ and browsing http://localhost:9000/ .
 *Instead of answering the dialog, cancel it*. You'll see a SWI generated warning page. Here's the code that does the work.
 
 ----
@@ -1935,7 +1935,7 @@ If the user cancels, http_dispatch responds with a not authorized page.
 
 [NOTA]
 =====
-After you correctly answer it becomes hard to fiddle with the example. You can run the server on another port to convince the browser it's talking to a different server
+After you correctly answer it becomes hard to fiddle with the example. You can run el servidor on another port to convince the browser it's talking to a different server
 =====
 
 An Easier Way
@@ -1963,7 +1963,7 @@ You can get digest authentication by the same API as basic authentication.
 OpenID
 ~~~~~~
 
-This section is still to be done. Sorry, I want to get this out, and I don't understand this myself.
+Esta sección is still to be done. Sorry, I want to get this out, and I don't understand this myself.
 
 9 Running The Server
 --------------------
@@ -1978,9 +1978,9 @@ server(Port) :-
         http_server(http_dispatch, [port(Port)]).
 ----
 
-Jan writes about 'three ways' to run the server.
+Jan writes about 'three ways' to run el servidor.
 
-+inetd+, a unix daemon that handles the outer network interface, requires starting the prolog server separately for each invocation, and isn't really an option for serious work.
++inetd+, a unix daemon that handles the outer network interface, requires starting the prolog server separately para cada invocation, and isn't really an option for serious work.
 
 The XPCE based server receives XPCE events for incoming requests. It's not multithreaded, and it's only advantage is that debugging is slightly easier in a single threaded enviornment.
 
@@ -1989,7 +1989,7 @@ For serious use, the multi-threaded http://www.swi-prolog.org/pldoc/doc_for?obje
 ****
 Ejercicio: Using the link above for http_server, answer the following questions
 
-* A client will be feeding your server data via long poll. What option will you have to adjust in +http_server+?
+* A client will be feeding su servidor data via long poll. What option will you have to adjust in +http_server+?
 
 * Your site for aerospace engineers processes data sets on users behalf by some powerful but very cpu intensive computation that can take up to 800MB of stack (but 'normal' sized trail and global memory) and run for hours. The average site user will run one of these a day. The output is a large raw video file that is then transcoded into a standard video format. The transcoding is shelled out, but can take a long time (minutes) to complete. Use http_spawn and http_server documentation to replace the ??? sections in the code below. (Note, there is no one right answer for this question.)
 
@@ -2017,7 +2017,7 @@ server(Port) :-
 9_2 Serving on port 80
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The simplest way to get your server onto port 80 to serve to the world is to have Apache reverse proxy.  if your server is on port 8000, add this to site.conf
+The simplest way to get su servidor onto port 80 to serve to the world is to have Apache reverse proxy.  if su servidor is on port 8000, add this to site.conf
 
 ----
 ProxyPass        /myserver/ http://localhost:8000/myserver/
@@ -2033,7 +2033,7 @@ Ejercicio: Set 5_1 up to be served from port 80 in your local environment.
 10 Handling The Back End
 ------------------------
 
-Your web application will presumably need a persistent store on the back end. You have a number of options.
+Your web application will presumably need a persistent store on the back end. You have a number of opciones.
 
 SQL
 ~~~
@@ -2113,7 +2113,7 @@ query prolog_ide(thread_monitor).
 
 Oooh, didn't that feel good?
 
-when starting the server, setting the number of threads to 1 can make debugging simpler. However, you may find your life complicated if one http request is stopped in the debugger and the page never finishes loading because the browser is making another request.
+when starting el servidor, setting the number of threads to 1 can make debugging simpler. However, you may find your life complicated if one http request is stopped in the debugger and the page never finishes loading because the browser is making another request.
 
 Reducing Abstract WTF Moments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2132,7 +2132,7 @@ Ooh and awe, then go read debug/1 and debug/3 docs
 Better Error Messages
 ^^^^^^^^^^^^^^^^^^^^^
 
-Loading +library(http/http_error.pl)+  causes uncaught exceptions in the server to generate a 500 error page with the error. (Remove this in production, it's never a good idea to give the hacker info about your system.) Most of the examples load this.
+Loading +library(http/http_error.pl)+  causes uncaught exceptions in el servidor to generate a 500 error page with the error. (Remove this in production, it's never a good idea to give the hacker info about your system.) Most of the examples load this.
 
 Paths
 ^^^^^
@@ -2155,7 +2155,7 @@ Any call to +absolute_file_name+ (under the covers of anything that uses abstrac
 
 If you just need to check one, use +file_search_path('some/path', Path)+. It's nondet, it'll give you all the possiblities.
 
-But the best trick is that a relative path passed to +edit/1+ takes you to the handler it resolves to, which is nifty.
+Sin embargo the best trick is that a relative path passed to +edit/1+ takes you to the handler it resolves to, which is nifty.
 
 ----
 ?- edit('/wheres/this/go?kumquat=1').
@@ -2164,7 +2164,7 @@ But the best trick is that a relative path passed to +edit/1+ takes you to the h
 Where The Heck Am I?
 ^^^^^^^^^^^^^^^^^^^^
 
-Another handy thing to put in the top of a puzzling handler is http://www.swi-prolog.org/pldoc/doc_for?object=section%283,%273.13%27,swi%28%27/doc/packages/http.html%27%29%29[+http_current_host+], whose last arg binds to the URI the server thinks it's serving.
+Another handy thing to put in the top of a puzzling handler is http://www.swi-prolog.org/pldoc/doc_for?object=section%283,%273.13%27,swi%28%27/doc/packages/http.html%27%29%29[+http_current_host+], whose last arg binds to the URI el servidor thinks it's serving.
 
 Ouch, that hurt on 4000
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -2256,8 +2256,8 @@ Seguridad
 
 Checklist de Seguridad
 
-* are you vulnerable to prolog injection attacks? (easy to do with metaprogramming)
-* shell injection attacks? (sanitize args passed to shell). Prefer +process_create/3+ over +shell/1+.  Safe argument handling and you can handle the output from the process much easier.
+* are you vulnerable to prolog ataques de inyección? (easy to do with metaprogramación)
+* shell ataques de inyección? (sanitize args passed to shell). Prefer +process_create/3+ over +shell/1+.  Safe argument handling and you can handle the output from the process much easier.
 * Inyecciones de SQL?
 *PLDoc server on? (see Ouch that hurt on 4000)
 * Don't include +library(http/http_errors.pl)+ in production to make hacker's jobs harder
@@ -2265,11 +2265,9 @@ Checklist de Seguridad
 Enlightened Self Interest
 -------------------------
 
-La única manera de volverse competente con una API es usarla. Así que, just as much as exercises or this page, I encourage you to make a project with the SWI tools. At the end of the course there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
+La única manera de volverse competente con una API es usarla. Así que, just as much as ejercicios or this page, le invito a crear un royecto con las herramientas SWI. Al final del curso there's a plea for people to help with a library of web patterns. If you don't have a specific project, you might consider doing that.
 
-The only way to really become competent with an API is to use it. Así que, just as much as exercises or this page, I encourage you to make a project with the SWI tools.
-
-I imagine many of you will have a project - it will be why you're doing this course. But if you don't, or if your 'real' project is going to be a large one and you don't want to start it while a new user, or you just feel like doing a bit of good in return for free internet stuff, consider this:
+I imagine many of you will have a project - it will be why you're doing this course. Sin embargo if you don't, or if your 'real' project is going to be a large one and you don't want to start it while a new user, or you just feel like doing a bit of good in return for free internet stuff, consider this:
 
 I thought I'd invite  everyone who takes this course to contribute a piece to an opensource library. Anyone who takes the course should be well equipped to contribute. It's not a requirement, but is a source of many small, semi-independent tasks suitable for cementing learning.
 
